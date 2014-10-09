@@ -22,7 +22,40 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Address.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="BlomstermalaBuss.py" />
+    <Compile Include="Booking.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BookingMng.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bus.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="City.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DbController.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DbPull.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DbPush.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GUI.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Person.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Trip.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
