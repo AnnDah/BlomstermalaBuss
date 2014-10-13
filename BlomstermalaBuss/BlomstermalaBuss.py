@@ -1,5 +1,4 @@
-import DbPull
-
-print 'Hello World'
+class BlomstermalaBuss(object):
+    print 'Hello World'
 
 

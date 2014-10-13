@@ -38,6 +38,9 @@
     <Compile Include="City.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="dbConnector.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DbController.py">
       <SubType>Code</SubType>
     </Compile>
@@ -54,6 +57,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Trip.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="__init__.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
