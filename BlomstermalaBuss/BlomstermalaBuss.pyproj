@@ -41,25 +41,13 @@
     <Compile Include="dbConnector.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DbController.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DbPull.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DbPush.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="GUI.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Person.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Trip.py">
+    <Compile Include="QuerySQL.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="__init__.py">
+    <Compile Include="Trip.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
