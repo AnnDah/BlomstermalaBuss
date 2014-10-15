@@ -15,7 +15,7 @@ class main(object):
     
     #add bus
     def add_bus(self, ID, name, seats):
-        Bus.Bus().add_bus(ID, name, seats)
+        Bus.Bus().add_bus(name, seats)
     #edit bus
     #delete bus
 

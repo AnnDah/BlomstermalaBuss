@@ -22,6 +22,6 @@ class QuerySQL(object):
         self.db_connection.remove_data(query)
 
     def add_bus(self, new_bus):
-        query = 'INSERT INTO Bus (ID, Name, Seats) VALUES (\'%s\', \'%s\', \'%s\')' % (new_bus.ID, new_bus.name, new_bus.seats)
+        query = 'INSERT INTO Bus (ID, Name, Seats) VALUES (\'%s\', \'%s\')' % (new_bus.name, new_bus.seats)
         self.db_connection.add_data(query)
 

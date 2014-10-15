@@ -2,16 +2,14 @@ import QuerySQL
 
 class Bus(object):
     """description of class"""
-
-    ID = ''   
+    
     name = ''
     seats = ''
     
     
 
-    def add_bus(self, ID, name, seats):
-        new_bus = Bus()
-        new_bus.ID = ID
+    def add_bus(self, name, seats):
+        new_bus = Bus()        
         new_bus.name = name
         new_bus.seats = seats
 

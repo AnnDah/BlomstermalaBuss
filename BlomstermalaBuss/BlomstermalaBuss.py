@@ -26,12 +26,11 @@ class BlomstermalaBuss(object):
         main.main().delete_person(id)
 
     elif choice == '4':
-        #Add bus         
-        first_name = raw_input('Add ID: ')
+        #Add bus                 
         last_name = raw_input('Add Name: ')
         personal_number = raw_input('Add Seats ')
-        main.main().
-        main.main().add_user(first_name, last_name, personal_number)
+        main.main().add_bus(name, seats)
+        
 
 
     else:
