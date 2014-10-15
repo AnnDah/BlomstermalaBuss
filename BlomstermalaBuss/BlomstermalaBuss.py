@@ -1,4 +1,5 @@
 import main
+import QuerySQL
 
 class BlomstermalaBuss(object):
     
@@ -28,7 +29,7 @@ class BlomstermalaBuss(object):
             print '2: Add person'
             print '3: Delete person'
             print '4: Edit person'
-            choice = raw_input('Val: ')
+            choice = raw_input('Enter choice: ')
 
             #See all persons
             if choice == '1':
@@ -36,7 +37,7 @@ class BlomstermalaBuss(object):
 
             #Add person
             elif choice == '2':
-                first_name = raw_input('Add firstname: ')
+                first_name = raw_input('Add first name: ')
                 last_name = raw_input('Add last name: ')
                 personal_number = raw_input('Add personal number: ')
                 main.main().add_user(first_name, last_name, personal_number)
@@ -48,7 +49,22 @@ class BlomstermalaBuss(object):
 
             #Edit person
             elif choice == '4':
-                print 'edit person'
+                id = raw_input('Enter person ID: ')
+                print main.main().get_person(id)
+                choice = raw_input('Do you want to edit this persons information? Y or N: ')
+
+                if choice == 'Y' or 'y':
+                    print 'YES'
+                    first_name = raw_input('Add first name: ')
+                    last_name = raw_input('Add last name: ')
+                    personal_number = raw_input('Add personal number: ')
+                    main.main().edit_person(id, first_name, last_name, personal_number)
+                
+                elif choice == 'N' or 'n':
+                    print 'NO'
+
+                else:
+                    print 'Invalid choice'
 
             #Invalid choice
             else:

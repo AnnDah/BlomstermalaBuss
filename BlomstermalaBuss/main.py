@@ -9,6 +9,12 @@ class main(object):
     def add_user(self, first_name, last_name, personal_number):
         Person.Person().add_user(first_name, last_name, personal_number)
     #edit person
+    def edit_person(self, id, first_name, last_name, personal_number):
+        return Person.Person().edit_person(id, first_name, last_name, personal_number)
+
+    #get person
+    def get_person(self, id):
+        return Person.Person().get_user(id)
 
     #delete person
     def delete_person(self, id):

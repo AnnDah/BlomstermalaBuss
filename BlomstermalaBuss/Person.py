@@ -15,9 +15,18 @@ class Person(object):
 
         QuerySQL.QuerySQL().add_user(new_person)
 
+    #Get specific user
+    def get_user(self, id):
+        return QuerySQL.QuerySQL().get_person(id)
+
     #Edit a user with a specific id
-    def edit_person(self, id):
-        print 'edit person'
+    def edit_person(self, id, first_name, last_name, personal_number):
+        new_person = Person()
+        new_person.first_name = first_name
+        new_person.last_name = last_name
+        new_person.personal_number = personal_number
+        
+        QuerySQL.QuerySQL().update_person(id, new_person)
 
     #Deletes a user with a specific id
     def delete_person(self, id):
