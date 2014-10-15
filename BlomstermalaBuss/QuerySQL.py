@@ -18,7 +18,7 @@ class QuerySQL(object):
         self.db_connection.remove_data(query)
 
     def delete_bus(self, id):
-        query = 'DELETE from Bus WHERE ID=%s' % (id)
+        query = 'DELETE FROM Bus WHERE ID=%s' % (id)
         self.db_connection.remove_data(query)
 
     def add_bus(self, id, name, seats):
