@@ -9,8 +9,8 @@ class QuerySQL(object):
         result = self.db_connection.get_data(query)
         return result
 
-    def add_user(self, first_name, last_name, personal_number):
-        query = 'INSERT INTO Person (FirstName, LastName, PersonalNumber) VALUES (\'%s\', \'%s\', \'%s\')' % (first_name, last_name, personal_number)
+    def add_user(self, new_person):
+        query = 'INSERT INTO Person (FirstName, LastName, PersonalNumber) VALUES (\'%s\', \'%s\', \'%s\')' % (new_person.first_name, new_person.last_name, new_person.personal_number)
         self.db_connection.add_data(query)
 
     def delete_user(self, id):
