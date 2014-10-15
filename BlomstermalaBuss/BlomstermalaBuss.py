@@ -85,8 +85,20 @@ class BlomstermalaBuss(object):
                 main.main().add_bus(name, seats)
 
             #Edit bus
-            elif choice == '2':
-                print 'edit bus'
+            elif choice == '2':                            
+                id = raw_input('Enter bus ID: ')
+                print main.main().get_bus(id)
+                choice = raw_input('Do you want to edit this bus information? Y or N: ')
+
+                if choice == 'Y' or 'y':
+                    print 'YES'
+                    name = raw_input('Add name: ')
+                    seats = raw_input('Add seats: ')                                 
+                    main.main().edit_bus(id, name, seats)                        
+                
+                elif choice == 'N' or 'n':
+                    print 'NO'
+
 
             #Delete bus
             elif choice == '3':

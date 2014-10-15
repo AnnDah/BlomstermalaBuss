@@ -50,3 +50,14 @@ class QuerySQL(object):
     def update_person(self, id, new_person):
         query = 'UPDATE Person SET FirstName=\'%s\', LastName=\'%s\', PersonalNumber=\'%s\' WHERE ID=\'%s\'' % (new_person.first_name, new_person.last_name, new_person.personal_number, id)
         self.db_connection.add_data(query)
+
+        #Get info about specific bus
+    def get_bus(self, id):
+        query = 'SELECT ID, name, seats, FROM Bus WHERE ID=%s' % (id)
+        result = self.db_connection.get_data(query)
+        return result
+
+    #Update information about bus
+    def update_bus(self, id, new_bus):
+        query = 'UPDATE Bus SET Name=\'%s\', Seats=\'%s\', WHERE ID=\'%s\'' % (new_bus.name, new_bus.seats, id)
+        self.db_connection.add_data(query)

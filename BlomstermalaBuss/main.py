@@ -23,7 +23,15 @@ class main(object):
     #add bus
     def add_bus(self, name, seats):
         Bus.Bus().add_bus(name, seats)
+
     #edit bus
+    def edit_bus(self, id, name, seats):
+        return Bus.Bus().edit_bus(id, name, seats)
+
+
+    #get bus
+    def get_bus(self, id):
+        return Bus.Bus().get_bus(id)        
 
     #delete bus
     def delete_bus(self, id):
