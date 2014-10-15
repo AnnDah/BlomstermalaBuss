@@ -62,6 +62,8 @@ class BlomstermalaBuss(object):
 
             elif choice == '3':
                 print 'delete bus'
+                id = raw_input('Add ID to person to delete: ')
+                main.main().delete_bus(id)
 
             else:
                 print 'Invalid choice!'
