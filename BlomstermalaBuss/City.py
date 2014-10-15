@@ -18,6 +18,6 @@ class City(object):
 
         # remove
     def remove_city(self, id):
-        QuerySQL.QuerySQL().delete_bus(id)
+        QuerySQL.QuerySQL().delete_city(id)
         print 'delete city'
         

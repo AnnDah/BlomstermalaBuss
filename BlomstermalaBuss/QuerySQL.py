@@ -28,3 +28,7 @@ class QuerySQL(object):
     def add_city(self, new_city):
         query = 'INSERT INTO City (Name, Country) VALUES (\'%s\', \'%s\')' % (new_city.name, new_city.country)
         self.db_connection.add_data(query)
+
+    def delete_city(self, id):
+        query = 'DELETE FROM City WHERE ID=%s' % (id)
+        self.db_connection.remove_data(query)
