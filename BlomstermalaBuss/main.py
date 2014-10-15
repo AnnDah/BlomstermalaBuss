@@ -8,7 +8,10 @@ class main(object):
     def add_user(self, first_name, last_name, personal_number):
         Person.Person().add_user(first_name, last_name, personal_number)
     #edit person
+
     #delete person
+    def delete_person(self, id):
+        Person.Person().delete_person(id)
     
     #add bus
     def add_bus(self, ID, name, seats):

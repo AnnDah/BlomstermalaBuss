@@ -6,6 +6,7 @@ class Person(object):
     last_name = ''
     personal_number = ''
 
+    #Adds a user
     def add_user(self, first_name, last_name, personal_number):
         new_person = Person()
         new_person.first_name = first_name
@@ -13,5 +14,14 @@ class Person(object):
         new_person.personal_number = personal_number
 
         QuerySQL.QuerySQL().add_user(new_person)
+
+    #Edit a user with a specific id
+    def edit_person(self, id):
+        print 'edit person'
+
+    #Deletes a user with a specific id
+    def delete_person(self, id):
+        QuerySQL.QuerySQL().delete_user(id)
+        print 'delete person'
 
 
