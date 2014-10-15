@@ -1,8 +1,8 @@
 import main
-import QuerySQL
 
 class BlomstermalaBuss(object):
     
+    #Main menu
     print 'Are you a:'
     print '1: User'
     print '2: Admin'
@@ -33,7 +33,7 @@ class BlomstermalaBuss(object):
 
             #See all persons
             if choice == '1':
-                print QuerySQL.QuerySQL().get_all_users()
+                print main.main().get_all_persons()
 
             #Add person
             elif choice == '2':

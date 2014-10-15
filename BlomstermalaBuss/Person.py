@@ -15,6 +15,10 @@ class Person(object):
 
         QuerySQL.QuerySQL().add_user(new_person)
 
+    #Get all persons
+    def get_all_persons(self):
+        return QuerySQL.QuerySQL().get_all_persons()
+
     #Get specific user
     def get_user(self, id):
         return QuerySQL.QuerySQL().get_person(id)

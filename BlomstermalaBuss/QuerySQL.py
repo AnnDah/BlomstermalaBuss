@@ -5,7 +5,7 @@ class QuerySQL(object):
     db_connection = dbConnector.dbConnector()
 
     #Get all persons
-    def get_all_users(self):
+    def get_all_persons(self):
         query = 'SELECT * FROM Person'
         result = self.db_connection.get_data(query)
         return result
