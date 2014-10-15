@@ -23,7 +23,7 @@ class BlomstermalaBuss(object):
     elif choice == '3':
         #delete person
         id = raw_input('Add ID to person to delete: ')
-        QuerySQL.QuerySQL().delete_user(id)
+        main.main().delete_person(id)
 
     else:
         print 'Det var inget giltligt val :)'
