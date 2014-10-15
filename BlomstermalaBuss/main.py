@@ -12,7 +12,7 @@ class main(object):
 
     #edit person
     def edit_person(self, id, first_name, last_name, personal_number):
-        return Person.Person().edit_person(id, first_name, last_name, personal_number)
+        Person.Person().edit_person(id, first_name, last_name, personal_number)
 
     #get all persons
     def get_all_persons(self):
@@ -32,7 +32,7 @@ class main(object):
 
     #edit bus
     def edit_bus(self, id, name, seats):
-        return Bus.Bus().edit_bus(id, name, seats)
+        Bus.Bus().edit_bus(id, name, seats)
 
 
     #get bus

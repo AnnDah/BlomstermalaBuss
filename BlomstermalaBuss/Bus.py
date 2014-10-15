@@ -19,13 +19,15 @@ class Bus(object):
     def get_bus(self, id):
         return QuerySQL.QuerySQL().get_bus(id)
 
+    
+
         #edit
     def edit_bus(self, id, name, seats):
         new_bus = Bus()        
         new_bus.name = name
         new_bus.seats = seats
 
-        QuerySQL.QuerySQL().update_bus(id)
+        QuerySQL.QuerySQL().update_bus(id, new_bus)
 
     ##Edit a user with a specific id
     #def edit_person(self, id, first_name, last_name, personal_number):
