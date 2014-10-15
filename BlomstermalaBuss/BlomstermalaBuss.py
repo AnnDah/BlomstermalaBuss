@@ -63,7 +63,7 @@ class BlomstermalaBuss(object):
             choice = raw_input('Enter choice: ')
 
             #Add bus
-            if choice == '1':                
+            if choice == '1':
                 name = raw_input('Add Name: ')
                 seats = raw_input('Add Seats ')
                 main.main().add_bus(name, seats)
@@ -75,7 +75,7 @@ class BlomstermalaBuss(object):
             #Delete bus
             elif choice == '3':
                 print 'delete bus'
-                id = raw_input('Add ID to person to delete: ')
+                id = raw_input('Add ID to bus to delete: ')
                 main.main().delete_bus(id)
 
             #Invalid choice
@@ -84,11 +84,28 @@ class BlomstermalaBuss(object):
 
         #City menu
         elif choice =='3':
-            print 'city menu' 
+            print 'What do you want to do?'
+            print '1: Add City'
+            print '2: Edit City'
+            print '3: Delete City'
+            choice = raw_input('Enter choice: ')
 
-        #Trip menu
-        elif choice == '4':
-            print 'trip menu'
+            if choice == '1':
+                #Add bus                 
+                name = raw_input('Add Name: ')
+                seats = raw_input('Add City ')
+                main.main().add_city(name, country)                
+
+            elif choice == '2':
+                print 'edit City'
+
+            elif choice == '3':
+                print 'delete City'
+                id = raw_input('Add ID to City to delete: ')
+                main.main().delete_city(id)                
+
+            else:
+                print 'Invalid choice!' 
 
         #Booking menu
         elif choice == '5':
