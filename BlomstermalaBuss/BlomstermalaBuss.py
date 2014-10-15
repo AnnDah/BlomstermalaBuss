@@ -90,20 +90,23 @@ class BlomstermalaBuss(object):
             print '3: Delete City'
             choice = raw_input('Enter choice: ')
 
-            if choice == '1':
-                #Add bus                 
+            #Add city
+            if choice == '1':                
                 name = raw_input('Add Name of City: ')
                 country = raw_input('Add Country ')
                 main.main().add_city(name, country)                
 
+            #Edit city
             elif choice == '2':
                 print 'edit City'
 
+            #Delete city
             elif choice == '3':
                 print 'delete City'
                 id = raw_input('Add ID to City to delete: ')
                 main.main().delete_city(id)                
 
+            #Invalid choice
             else:
                 print 'Invalid choice!' 
 
