@@ -18,7 +18,7 @@ class BlomstermalaBuss(object):
         first_name = raw_input('Add firstname: ')
         last_name = raw_input('Add last name: ')
         personal_number = raw_input('Add personal number: ')
-        QuerySQL.QuerySQL().add_user(first_name, last_name, personal_number)
+        main.main().add_user(first_name, last_name, personal_number)
 
     elif choice == '3':
         #delete person
