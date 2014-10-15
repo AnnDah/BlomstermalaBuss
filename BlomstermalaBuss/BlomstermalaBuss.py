@@ -25,6 +25,15 @@ class BlomstermalaBuss(object):
         id = raw_input('Add ID to person to delete: ')
         QuerySQL.QuerySQL().delete_user(id)
 
+    elif choice == '4':
+        #Add bus         
+        first_name = raw_input('Add ID: ')
+        last_name = raw_input('Add Name: ')
+        personal_number = raw_input('Add Seats ')
+        main.main().
+        main.main().add_user(first_name, last_name, personal_number)
+
+
     else:
         print 'Det var inget giltligt val :)'
 

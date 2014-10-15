@@ -1,4 +1,5 @@
 import Person
+import Bus
 
 class main(object):
     """description of class"""
@@ -10,6 +11,8 @@ class main(object):
     #delete person
     
     #add bus
+    def add_bus(self, ID, name, seats):
+        Bus.Bus().add_bus(ID, name, seats)
     #edit bus
     #delete bus
 
