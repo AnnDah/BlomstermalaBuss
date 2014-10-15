@@ -16,3 +16,12 @@ class QuerySQL(object):
     def delete_user(self, id):
         query = 'DELETE FROM Person WHERE ID=%s' % (id)
         self.db_connection.remove_data(query)
+
+    def delete_bus(self, id):
+        query = 'DELETE from Bus WHERE ID=%s' % (id)
+        self.db_connection.remove_data(query)
+
+    def add_bus(self, id, name, seats):
+        query = 'INSERT INTO Bus (ID, Name, Seats) VALUES (\'%s\', \'%s\', \'%s\')' % (id, name, seats)
+        self.db_connection.add_data(query)
+
