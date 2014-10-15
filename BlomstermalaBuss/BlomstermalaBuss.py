@@ -78,8 +78,8 @@ class BlomstermalaBuss(object):
 
             if choice == '1':
                 #Add bus                 
-                name = raw_input('Add Name: ')
-                seats = raw_input('Add City ')
+                name = raw_input('Add Name of City: ')
+                country = raw_input('Add Country ')
                 main.main().add_city(name, country)                
 
             elif choice == '2':

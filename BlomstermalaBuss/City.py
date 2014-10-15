@@ -17,6 +17,7 @@ class City(object):
         QuerySQL.QuerySQL().add_city(new_city)
 
         # remove
-    def remove_city(self, name, country):
+    def remove_city(self, id):
         QuerySQL.QuerySQL().delete_bus(id)
+        print 'delete city'
         
