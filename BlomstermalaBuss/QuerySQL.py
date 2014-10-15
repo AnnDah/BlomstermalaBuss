@@ -4,6 +4,12 @@ class QuerySQL(object):
     """description of class"""
     db_connection = dbConnector.dbConnector()
 
+    #Get all data in specific table
+    def get_all_data(self, table):
+        query = 'SELECT * from %s' % (table)
+        result = self.db_connection.get_data(query)
+        return result
+
     #Get all persons
     def get_all_persons(self):
         query = 'SELECT * FROM Person'

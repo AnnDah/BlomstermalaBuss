@@ -1,6 +1,7 @@
 import Person
 import Bus
 import City
+import Trip
 
 class main(object):
     """description of class"""
@@ -43,6 +44,9 @@ class main(object):
     def delete_city(self, id):
         City.City().remove_city(id)
         
+    #get all trips
+    def get_all_trips(self):
+        return Trip.Trip().get_all_trips()
     #add trip
     #edit trip
     #delete trip

@@ -126,6 +126,20 @@ class BlomstermalaBuss(object):
             else:
                 print 'Invalid choice!' 
 
+        #Trip menu
+        elif choice == '4':
+            print 'What do you want to do?'
+            print '1: See all trips'
+            print '2: Add trip'
+            print '3: Edit trip'
+            print '4: Delete trip'
+            choice = raw_input('Enter choice: ')
+            
+            if choice == '1':
+                print main.main().get_all_trips()
+            else:
+                print 'Invalid choice'
+
         #Booking menu
         elif choice == '5':
             print 'Booking menu'
