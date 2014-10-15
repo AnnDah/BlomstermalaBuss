@@ -27,8 +27,8 @@ class BlomstermalaBuss(object):
 
     elif choice == '4':
         #Add bus                 
-        last_name = raw_input('Add Name: ')
-        personal_number = raw_input('Add Seats ')
+        name = raw_input('Add Name: ')
+        seats = raw_input('Add Seats ')
         main.main().add_bus(name, seats)
         
 
