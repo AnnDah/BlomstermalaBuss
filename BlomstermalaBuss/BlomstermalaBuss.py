@@ -1,8 +1,8 @@
 import main
-import QuerySQL
 
 class BlomstermalaBuss(object):
     
+    #Main menu
     print 'Are you a:'
     print '1: User'
     print '2: Admin'
@@ -33,7 +33,7 @@ class BlomstermalaBuss(object):
 
             #See all persons
             if choice == '1':
-                print QuerySQL.QuerySQL().get_all_users()
+                print main.main().get_all_persons()
 
             #Add person
             elif choice == '2':
@@ -137,6 +137,20 @@ class BlomstermalaBuss(object):
             #Invalid choice
             else:
                 print 'Invalid choice!' 
+
+        #Trip menu
+        elif choice == '4':
+            print 'What do you want to do?'
+            print '1: See all trips'
+            print '2: Add trip'
+            print '3: Edit trip'
+            print '4: Delete trip'
+            choice = raw_input('Enter choice: ')
+            
+            if choice == '1':
+                print main.main().get_all_trips()
+            else:
+                print 'Invalid choice'
 
         #Booking menu
         elif choice == '5':
