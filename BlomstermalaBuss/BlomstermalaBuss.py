@@ -1,5 +1,6 @@
-import QuerySQL
-import dbConnector
+import QuerySQL #ta bort
+import dbConnector #ta bort
+import main
 
 class BlomstermalaBuss(object):
     print 'Vad vill du göra?'

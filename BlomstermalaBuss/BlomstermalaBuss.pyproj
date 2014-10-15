@@ -41,6 +41,9 @@
     <Compile Include="dbConnector.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="main.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Person.py">
       <SubType>Code</SubType>
     </Compile>
