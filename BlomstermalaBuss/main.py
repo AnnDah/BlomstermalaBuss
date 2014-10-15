@@ -14,12 +14,16 @@ class main(object):
         Person.Person().delete_person(id)
     
     #add bus
-    def add_bus(self, ID, name, seats):
+    def add_bus(self, name, seats):
         Bus.Bus().add_bus(name, seats)
     #edit bus
+
     #delete bus
+    def delete_bus(self, id):
+        Bus.Bus().remove_bus(id)
 
     #add city
+
     #edit city
     #delete city
 
