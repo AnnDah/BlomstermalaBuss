@@ -25,3 +25,6 @@ class QuerySQL(object):
         query = 'INSERT INTO Bus (Name, Seats) VALUES (\'%s\', \'%s\')' % (new_bus.name, new_bus.seats)
         self.db_connection.add_data(query)
 
+    def add_city(self, new_city):
+        query = 'INSERT INTO City (Name, Country) VALUES (\'%s\', \'%s\')' % (new_city.name, new_city.country)
+        self.db_connection.add_data(query)
