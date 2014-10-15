@@ -7,9 +7,11 @@ class BlomstermalaBuss(object):
     print '2: Admin'
     choice = raw_input('Enter choice: ')
 
+    #User menu
     if choice == '1':
         print 'user menu'
 
+    #Admin menu
     elif choice == '2':
         print 'Enter menu to go to'
         print '1: Person'
@@ -18,32 +20,40 @@ class BlomstermalaBuss(object):
         print '4: Trip'
         print '5: Booking'
         choice = raw_input('Enter choice: ')
+
         #Person menu
         if choice == '1':
-            print 'Vad vill du göra?'
-            print '1: Se alla personer'
-            print '2: Lägga till person'
-            print '3: Ta bort person'
+            print 'What do you want to do?'
+            print '1: See list of persons'
+            print '2: Add person'
+            print '3: Delete person'
+            print '4: Edit person'
             choice = raw_input('Val: ')
+
             #See all persons
             if choice == '1':
-                #print all persons
                 print QuerySQL.QuerySQL().get_all_users()
+
             #Add person
             elif choice == '2':
-                #add person
                 first_name = raw_input('Add firstname: ')
                 last_name = raw_input('Add last name: ')
                 personal_number = raw_input('Add personal number: ')
                 main.main().add_user(first_name, last_name, personal_number)
+
             #Delete person
             elif choice == '3':
-                #delete person
                 id = raw_input('Add ID to person to delete: ')
                 main.main().delete_person(id)
+
+            #Edit person
+            elif choice == '4':
+                print 'edit person'
+
             #Invalid choice
             else:
-                print 'Det var inget giltligt val :)'
+                print 'Invalid choice'
+
         #Bus menu
         elif choice == '2':
             print 'What do you want to do?'
@@ -52,24 +62,28 @@ class BlomstermalaBuss(object):
             print '3: Delete bus'
             choice = raw_input('Enter choice: ')
 
+            #Add bus
             if choice == '1':
-                #Add bus                 
                 name = raw_input('Add Name: ')
                 seats = raw_input('Add Seats ')
                 main.main().add_bus(name, seats)
 
+            #Edit bus
             elif choice == '2':
                 print 'edit bus'
 
+            #Delete bus
             elif choice == '3':
                 print 'delete bus'
                 id = raw_input('Add ID to bus to delete: ')
                 main.main().delete_bus(id)
 
+            #Invalid choice
             else:
                 print 'Invalid choice!'
 
-        elif choice =='3':                                
+        #City menu
+        elif choice =='3':
             print 'What do you want to do?'
             print '1: Add City'
             print '2: Edit City'
@@ -91,7 +105,12 @@ class BlomstermalaBuss(object):
                 main.main().delete_city(id)                
 
             else:
-                print 'Invalid choice!'
+                print 'Invalid choice!' 
 
-        elif choice == '4':
-            print 'booking menu'
+        #Booking menu
+        elif choice == '5':
+            print 'Booking menu'
+
+        #Invalid choice
+        else:
+            print 'Invalid choice'
