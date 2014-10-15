@@ -17,7 +17,7 @@ class Person(object):
 
     #Get all persons
     def get_all_persons(self):
-        return QuerySQL.QuerySQL().get_all_persons()
+        return QuerySQL.QuerySQL().get_all_data('Person')
 
     #Get specific user
     def get_user(self, id):

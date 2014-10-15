@@ -10,12 +10,6 @@ class QuerySQL(object):
         result = self.db_connection.get_data(query)
         return result
 
-    #Get all persons
-    def get_all_persons(self):
-        query = 'SELECT * FROM Person'
-        result = self.db_connection.get_data(query)
-        return result
-
     #Add person
     def add_user(self, new_person):
         query = 'INSERT INTO Person (FirstName, LastName, PersonalNumber) VALUES (\'%s\', \'%s\', \'%s\')' % (new_person.first_name, new_person.last_name, new_person.personal_number)
