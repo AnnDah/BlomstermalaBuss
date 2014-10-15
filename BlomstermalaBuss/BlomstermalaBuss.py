@@ -14,36 +14,37 @@ class BlomstermalaBuss(object):
         print 'Enter menu to go to'
         print '1: Person'
         print '2: Bus'
-        print '3: Trip'
-        print '4: Booking'
+        print '3: City'
+        print '4: Trip'
+        print '5: Booking'
         choice = raw_input('Enter choice: ')
-
+        #Person menu
         if choice == '1':
             print 'Vad vill du göra?'
             print '1: Se alla personer'
             print '2: Lägga till person'
             print '3: Ta bort person'
             choice = raw_input('Val: ')
-
+            #See all persons
             if choice == '1':
                 #print all persons
                 print QuerySQL.QuerySQL().get_all_users()
-
+            #Add person
             elif choice == '2':
                 #add person
                 first_name = raw_input('Add firstname: ')
                 last_name = raw_input('Add last name: ')
                 personal_number = raw_input('Add personal number: ')
                 main.main().add_user(first_name, last_name, personal_number)
-
+            #Delete person
             elif choice == '3':
                 #delete person
                 id = raw_input('Add ID to person to delete: ')
                 main.main().delete_person(id)
-        
+            #Invalid choice
             else:
                 print 'Det var inget giltligt val :)'
-
+        #Bus menu
         elif choice == '2':
             print 'What do you want to do?'
             print '1: Add bus'
