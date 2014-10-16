@@ -51,18 +51,20 @@ class BlomstermalaBuss(object):
             elif choice == '4':
                 id = raw_input('Enter person ID: ')
                 print main.main().get_person(id)
-                choice = raw_input('Do you want to edit this persons information? Y or N: ')
-
-                if choice == 'Y' or 'y':
+                choice = raw_input('Do you want to edit this persons information? Y or N: ').upper()
+                 #Yes edit
+                if choice == 'Y':
                     print 'YES'
                     first_name = raw_input('Add first name: ')
                     last_name = raw_input('Add last name: ')
                     personal_number = raw_input('Add personal number: ')
                     main.main().edit_person(id, first_name, last_name, personal_number)
                 
-                elif choice == 'N' or 'n':
+                #No don't edit
+                elif choice == 'N':
                     print 'NO'
 
+                #Invalid choice
                 else:
                     print 'Invalid choice'
 
@@ -88,16 +90,22 @@ class BlomstermalaBuss(object):
             elif choice == '2':                            
                 id = raw_input('Enter bus ID: ')
                 print main.main().get_bus(id)
-                choice = raw_input('Do you want to edit this bus information? Y or N: ')
+                choice = raw_input('Do you want to edit this bus information? Y or N: ').upper()
 
-                if choice == 'Y' or 'y':
+                #Yes edit bus
+                if choice == 'Y':
                     print 'YES'
                     name = raw_input('Add name: ')
                     seats = raw_input('Add seats: ')                                 
                     main.main().edit_bus(id, name, seats)                        
                 
-                elif choice == 'N' or 'n':
+                #No don't edit bus
+                elif choice == 'N':
                     print 'NO'
+
+                #Invalid choice
+                else:
+                    print 'Invalid choice'
 
 
             #Delete bus
