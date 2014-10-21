@@ -1,24 +1,31 @@
 import main
+import CLI
 
-class BlomstermalaBuss(object):
-    def test_print(self):
-        print 'det funkar'
+class CLI(object):
+    """description of class"""
 
     #Main menu
-    print 'Are you a:'
-    print '1: User'
-    print '2: Admin'
-    choice = raw_input('Enter choice: ')
+    def start(self):
+        print 'Are you a:'
+        print '1: User'
+        print '2: Admin'
+        choice = raw_input('Enter choice: ')
 
-    #User menu
-    if choice == '1':
+        if choice == '1':
+            self.user_menu()
+
+        elif choice == '2':
+            self.admin_menu()
+
+        #User menu
+    def user_menu(self):
         print 'Search trip'
-        #self.test_print()
+        #BlomstermalaBuss().test_print()
         search = raw_input('Enter city to depart from: ')
         print main.main().search_trip(search)
 
-    #Admin menu
-    elif choice == '2':
+        #Admin menu
+    def admin_menu(self):
         print 'Enter menu to go to'
         print '1: Person'
         print '2: Bus'
@@ -57,7 +64,7 @@ class BlomstermalaBuss(object):
                 id = raw_input('Enter person ID: ')
                 print main.main().get_person(id)
                 choice = raw_input('Do you want to edit this persons information? Y or N: ').upper()
-                 #Yes edit
+                    #Yes edit
                 if choice == 'Y':
                     print 'YES'
                     first_name = raw_input('Add first name: ')
