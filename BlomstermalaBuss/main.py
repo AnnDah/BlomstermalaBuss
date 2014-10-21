@@ -58,6 +58,9 @@ class main(object):
     #add trip
     #edit trip
     #delete trip
+    #search trip
+    def search_trip(self, search):
+        return Trip.Trip().search_trip(search)
 
     #add booking
     #change booking

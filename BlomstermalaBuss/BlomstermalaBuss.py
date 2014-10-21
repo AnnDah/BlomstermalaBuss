@@ -1,7 +1,9 @@
 import main
 
 class BlomstermalaBuss(object):
-    
+    def test_print(self):
+        print 'det funkar'
+
     #Main menu
     print 'Are you a:'
     print '1: User'
@@ -10,7 +12,11 @@ class BlomstermalaBuss(object):
 
     #User menu
     if choice == '1':
-        print 'user menu'
+        print 'Search trip'
+        #self.test_print()
+        search = raw_input('Enter city to depart from: ')
+        main.main().search_trip(search)
+        
 
     #Admin menu
     elif choice == '2':

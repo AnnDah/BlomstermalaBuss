@@ -66,3 +66,8 @@ class QuerySQL(object):
     def update_person(self, id, new_person):
         query = 'UPDATE Person SET FirstName=\'%s\', LastName=\'%s\', PersonalNumber=\'%s\' WHERE ID=\'%s\'' % (new_person.first_name, new_person.last_name, new_person.personal_number, id)
         self.db_connection.add_data(query)
+
+    #Search trip on depart from
+    def search_trip(self, search):
+        query = 'SELECT ID, Start, Ends, Weekday FROM Trip INNER JOIN City ON Trip.DepartsFrom=City.ID WHERE Name=%s' % search
+        return self.db_connection.get_data(query)
