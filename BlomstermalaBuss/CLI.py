@@ -1,30 +1,39 @@
 import main
-import CLI
 
 class CLI(object):
     """description of class"""
 
     #Main menu
     def start(self):
-        print 'Are you a:'
-        print '1: User'
-        print '2: Admin'
-        choice = raw_input('Enter choice: ')
+        choice = -1
 
-        if choice == '1':
-            self.user_menu()
+        while choice != '0':
+            print 'Are you a:'
+            print '1: User'
+            print '2: Admin'
+            print '0: Exit application'
+            choice = raw_input('Enter choice: ')
 
-        elif choice == '2':
-            self.admin_menu()
+            if choice == '1':
+                self.user_menu()
 
-        #User menu
+            elif choice == '2':
+                self.admin_menu()
+
+            elif choice == '0':
+                print ''
+
+            else:
+                print 'Invalid choice'
+
+    #User menu
     def user_menu(self):
         print 'Search trip'
         #BlomstermalaBuss().test_print()
         search = raw_input('Enter city to depart from: ')
         print main.main().search_trip(search)
 
-        #Admin menu
+    #Admin menu
     def admin_menu(self):
         print 'Enter menu to go to'
         print '1: Person'
