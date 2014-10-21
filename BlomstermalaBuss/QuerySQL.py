@@ -69,5 +69,5 @@ class QuerySQL(object):
 
     #Search trip on depart from
     def search_trip(self, search):
-        query = 'SELECT ID, Start, Ends, Weekday FROM Trip INNER JOIN City ON Trip.DepartsFrom=City.ID WHERE Name=%s' % search
+        query = 'SELECT * FROM Trip WHERE DepartsFrom=(SELECT ID FROM City WHERE Name=\'%s\')' % (search)
         return self.db_connection.get_data(query)

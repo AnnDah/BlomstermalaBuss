@@ -15,7 +15,7 @@ class BlomstermalaBuss(object):
         print 'Search trip'
         #self.test_print()
         search = raw_input('Enter city to depart from: ')
-        main.main().search_trip(search)
+        print main.main().search_trip(search)
         
 
     #Admin menu
