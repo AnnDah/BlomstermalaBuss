@@ -5,7 +5,7 @@ class Booking(object):
 
     trip = ''
     date
-    person
+    person = 0
 
     #Add booking on Trip.ID
 

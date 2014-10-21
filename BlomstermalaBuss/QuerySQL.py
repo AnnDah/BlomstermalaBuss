@@ -71,3 +71,8 @@ class QuerySQL(object):
     def search_trip(self, search):
         query = 'SELECT * FROM Trip WHERE DepartsFrom=(SELECT ID FROM City WHERE Name=\'%s\')' % (search)
         return self.db_connection.get_data(query)
+
+    #Add trip
+    def add_trip(self, trip):
+        query = 'INSERT INTO Trip (Start, Ends, Weekday, Price, DepartsFrom, ArrivesAt, BusID) VALUES (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\')' % (trip.start_time, trip.end_time, trip.weekday, trip.price, trip.departs_from, trip.arrives_at, trip.bus)
+        self.db_connection.add_data(query)

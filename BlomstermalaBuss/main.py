@@ -8,7 +8,12 @@ class main(object):
 
     #add person
     def add_user(self, first_name, last_name, personal_number):
-        Person.Person().add_user(first_name, last_name, personal_number)
+        new_person = Person.Person()
+        new_person.first_name = first_name
+        new_person.last_name = last_name
+        new_person.personal_number = personal_number
+
+        Person.Person().add_user(new_person)
 
     #edit person
     def edit_person(self, id, first_name, last_name, personal_number):
@@ -28,16 +33,22 @@ class main(object):
     
     #add bus
     def add_bus(self, name, seats):
-        Bus.Bus().add_bus(name, seats)
+        new_bus = Bus.Bus()        
+        new_bus.name = name
+        new_bus.seats = seats
+        Bus.Bus().add_bus(new_bus)
 
     #edit bus
     def edit_bus(self, id, name, seats):
         Bus.Bus().edit_bus(id, name, seats)
 
-
     #get bus
     def get_bus(self, id):
-        return Bus.Bus().get_bus(id)        
+        return Bus.Bus().get_bus(id)
+    
+    #get all buses
+    def get_buses(self):
+        return Bus.Bus().get_buses()        
 
     #delete bus
     def delete_bus(self, id):
@@ -45,8 +56,17 @@ class main(object):
 
     #add city
     def add_city(self, name, country):
-        City.City().add_city(name, country)
+        new_city = City.City()
+        new_city.name = name
+        new_city.country = country
+
+        City.City().add_city(new_city)
+    
     #edit city
+
+    #get all cities
+    def get_cities(self):
+        return City.City().get_cities()
 
     #delete city
     def delete_city(self, id):
@@ -55,7 +75,20 @@ class main(object):
     #get all trips
     def get_all_trips(self):
         return Trip.Trip().get_all_trips()
+
     #add trip
+    def add_trip(self, depart, arrive, start, end, weekday, price, bus):
+        new_trip = Trip.Trip()
+        new_trip.departs_from = depart
+        new_trip.arrives_at = arrive
+        new_trip.start_time = start
+        new_trip.end_time = end
+        new_trip.weekday = weekday
+        new_trip.price = price
+        new_trip.bus = bus
+
+        Trip.Trip().add_trip(new_trip)
+
     #edit trip
     #delete trip
     #search trip

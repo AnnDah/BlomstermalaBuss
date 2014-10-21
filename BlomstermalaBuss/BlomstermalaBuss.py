@@ -16,7 +16,6 @@ class BlomstermalaBuss(object):
         #self.test_print()
         search = raw_input('Enter city to depart from: ')
         print main.main().search_trip(search)
-        
 
     #Admin menu
     elif choice == '2':
@@ -163,6 +162,19 @@ class BlomstermalaBuss(object):
             
             if choice == '1':
                 print main.main().get_all_trips()
+
+            elif choice == '2':
+                print main.main().get_cities()
+                depart = raw_input('Enter ID for depart city: ')
+                arrive = raw_input('Enter ID for arrive city: ')
+                start = raw_input('Enter start time (00.00): ')
+                end = raw_input('Enter end time (00.00): ')
+                weekday = raw_input('Enter weekday: ')
+                price = raw_input('Enter price (00.00): ')
+                print main.main().get_buses()
+                bus = raw_input('Enter bus ID: ')
+                main.main().add_trip(depart, arrive, start, end, weekday, price, bus)
+
             else:
                 print 'Invalid choice'
 

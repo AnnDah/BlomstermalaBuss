@@ -7,12 +7,7 @@ class Person(object):
     personal_number = ''
 
     #Adds a user
-    def add_user(self, first_name, last_name, personal_number):
-        new_person = Person()
-        new_person.first_name = first_name
-        new_person.last_name = last_name
-        new_person.personal_number = personal_number
-
+    def add_user(self, new_person):
         QuerySQL.QuerySQL().add_user(new_person)
 
     #Get all persons
@@ -25,16 +20,15 @@ class Person(object):
 
     #Edit a user with a specific id
     def edit_person(self, id, first_name, last_name, personal_number):
-        new_person = Person()
+        new_person = Person.Person()
         new_person.first_name = first_name
         new_person.last_name = last_name
         new_person.personal_number = personal_number
-        
+
         QuerySQL.QuerySQL().update_person(id, new_person)
 
     #Deletes a user with a specific id
     def delete_person(self, id):
         QuerySQL.QuerySQL().delete_user(id)
-        print 'delete person'
 
 
