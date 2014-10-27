@@ -37,20 +37,5 @@ class Person(object):
 
     #Get id of last added person
     def get_last_id(self):
-        QuerySQL.QuerySQL().get_last_person_id()
-
-
-            #            query = text("""INSERT INTO HR_PunchBatch
-    #(StoreID, UserID, Source,Timestamp,Status)
-    #    VALUES (:StoreID,:UserID,:Source,NOW(),:Status)""")
-
-    #g.engine.execute(query,
-    #    StoreID=StoreID,
-    #    UserID=session['UserID'],
-    #    Source=source,
-    #    Status='New')
-
-    #batch_id = g.engine.execute('SELECT LAST_INSERT_ID() AS id').fetchone()
-    #return batch_id['id']
-
-
+        return QuerySQL.QuerySQL().get_last_person_id()
+        
