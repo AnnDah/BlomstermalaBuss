@@ -42,8 +42,8 @@ class main(object):
         return Person.Person().get_person_id(first_name, last_name)
 
     #Get id of last added person
-    def get_last_person_id(self, id):
-        return Person.Person().get_last_id(id)
+    def get_last_person_id(self):
+        return Person.Person().get_last_id()
 
     #delete person
     def delete_person(self, id):

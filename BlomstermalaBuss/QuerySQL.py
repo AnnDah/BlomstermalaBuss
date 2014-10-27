@@ -86,3 +86,6 @@ class QuerySQL(object):
     def add_booking(self, new_booking):
         query = 'INSERT INTO Booking (Date, TripID, PersonID) VALUES (\'%s\', \'%s\', \'%s\')' % (new_booking.date, new_booking.trip, new_booking.person)
         self.db_connection.add_data(query)
+
+    #Get id of last person added
+

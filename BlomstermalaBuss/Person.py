@@ -36,8 +36,8 @@ class Person(object):
         return QuerySQL.QuerySQL().get_person_id(first_name, last_name)
 
     #Get id of last added person
-    def get_last_id(self, id):
-        QuerySQL.QuerySQL().get_last_person_id(id)
+    def get_last_id(self):
+        QuerySQL.QuerySQL().get_last_person_id()
 
 
             #            query = text("""INSERT INTO HR_PunchBatch

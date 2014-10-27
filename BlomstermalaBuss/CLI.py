@@ -79,7 +79,7 @@ class CLI(object):
                 personal_number = raw_input('Add personal number: ')
                 main.main().add_user(first_name, last_name, personal_number)
 
-                last_added = main.main().get_last_person_id(id)
+                last_added = main.main().get_last_person_id()
 
 
                 town = raw_input('Add town of recidence: ')
