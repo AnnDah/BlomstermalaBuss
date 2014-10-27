@@ -30,6 +30,40 @@ class CLI(object):
     def user_menu(self):
         self.add_new_booking()
 
+    #Admin menu
+    def admin_menu(self):
+        print 'Enter menu to go to'
+        print '1: Person'
+        print '2: Bus'
+        print '3: City'
+        print '4: Trip'
+        print '5: Booking'
+        choice = raw_input('Enter choice: ')
+
+        #Person menu
+        if choice == '1':
+            self.person_menu()
+
+        #Bus menu
+        elif choice == '2':
+            self.bus_menu()
+
+        #City menu
+        elif choice =='3':
+            self.city_menu() 
+
+        #Trip menu
+        elif choice == '4':
+            self.trip_menu()
+
+        #Booking menu
+        elif choice == '5':
+            self.booking_menu()
+
+        #Invalid choice
+        else:
+            print 'Invalid choice'
+
     #Add new booking
     def add_new_booking(self):
         first_name = raw_input('Enter your first name: ')
@@ -47,18 +81,8 @@ class CLI(object):
         date = raw_input('Enter wich date you would like to go: ')
         main.main().add_booking(date, trip, person)
 
-    #Admin menu
-    def admin_menu(self):
-        print 'Enter menu to go to'
-        print '1: Person'
-        print '2: Bus'
-        print '3: City'
-        print '4: Trip'
-        print '5: Booking'
-        choice = raw_input('Enter choice: ')
-
-        #Person menu
-        if choice == '1':
+    #Person menu
+    def person_menu(self):
             print 'What do you want to do?'
             print '1: See list of persons'
             print '2: Add person'
@@ -72,26 +96,27 @@ class CLI(object):
                 for line in result:
                     print line
 
-            #Add person
+            #Add user
             elif choice == '2':
+                #add person
                 first_name = raw_input('Add first name: ')
                 last_name = raw_input('Add last name: ')
                 personal_number = raw_input('Add personal number: ')
                 main.main().add_user(first_name, last_name, personal_number)
-
+                
+                #get last added person id 
                 last_added = main.main().get_last_person_id()
-
-
-                town = raw_input('Add town of recidence: ')
-                zipcode = raw_input('Add your zipcode: ')
+                
+                #add address
                 street = raw_input('Add street: ')
+                zipcode = raw_input('Add your zipcode: ')
+                town = raw_input('Add town of recidence: ')
                 person_id = last_added
                 country = raw_input('Add Country: ')
-                main.main().add_address(town, zipcode, street, person_id, country)                
-
-             
-
-
+                main.main().add_address(town, zipcode, street, person_id, country)
+                
+                #add phone nummber
+                #Yet to be written      
 
             #Delete person
             elif choice == '3':
@@ -123,143 +148,139 @@ class CLI(object):
             else:
                 print 'Invalid choice'
 
-        #Bus menu
-        elif choice == '2':
-            print 'What do you want to do?'
-            print '1: Add bus'
-            print '2: Edit bus'
-            print '3: Delete bus'
-            choice = raw_input('Enter choice: ')
+    #Bus menu
+    def bus_menu(self):
+        print 'What do you want to do?'
+        print '1: Add bus'
+        print '2: Edit bus'
+        print '3: Delete bus'
+        choice = raw_input('Enter choice: ')
 
-            #Add bus
-            if choice == '1':
-                name = raw_input('Add Name: ')
-                seats = raw_input('Add Seats ')
-                main.main().add_bus(name, seats)
+        #Add bus
+        if choice == '1':
+            name = raw_input('Add Name: ')
+            seats = raw_input('Add Seats ')
+            main.main().add_bus(name, seats)
 
-            #Edit bus
-            elif choice == '2':                            
-                id = raw_input('Enter bus ID: ')
-                print main.main().get_bus(id)
-                choice = raw_input('Do you want to edit this bus information? Y or N: ').upper()
+        #Edit bus
+        elif choice == '2':                            
+            id = raw_input('Enter bus ID: ')
+            print main.main().get_bus(id)
+            choice = raw_input('Do you want to edit this bus information? Y or N: ').upper()
 
-                #Yes edit bus
-                if choice == 'Y':
-                    print 'YES'
-                    name = raw_input('Add name: ')
-                    seats = raw_input('Add seats: ')                                 
-                    main.main().edit_bus(id, name, seats)                        
+            #Yes edit bus
+            if choice == 'Y':
+                print 'YES'
+                name = raw_input('Add name: ')
+                seats = raw_input('Add seats: ')                                 
+                main.main().edit_bus(id, name, seats)                        
                 
-                #No don't edit bus
-                elif choice == 'N':
-                    print 'NO'
-
-                #Invalid choice
-                else:
-                    print 'Invalid choice'
-
-
-            #Delete bus
-            elif choice == '3':
-                print 'delete bus'
-                id = raw_input('Add ID to bus to delete: ')
-                main.main().delete_bus(id)
+            #No don't edit bus
+            elif choice == 'N':
+                print 'NO'
 
             #Invalid choice
             else:
-                print 'Invalid choice!'
+                print 'Invalid choice'
 
-        #City menu
-        elif choice =='3':
-            print 'What do you want to do?'
-            print '1: Add City'
-            print '2: Edit City'
-            print '3: Delete City'
-            choice = raw_input('Enter choice: ')
 
-            #Add city
-            if choice == '1':                
-                name = raw_input('Add Name of City: ')
-                country = raw_input('Add Country ')
-                main.main().add_city(name, country)                
+        #Delete bus
+        elif choice == '3':
+            print 'delete bus'
+            id = raw_input('Add ID to bus to delete: ')
+            main.main().delete_bus(id)
 
-            #Edit city
-            elif choice == '2':
-                print 'edit City'
+        #Invalid choice
+        else:
+            print 'Invalid choice!'
 
-            #Delete city
-            elif choice == '3':
-                print 'delete City'
-                id = raw_input('Add ID to City to delete: ')
-                main.main().delete_city(id)                
+    #City menu
+    def city_menu(self):
+        print 'What do you want to do?'
+        print '1: Add City'
+        print '2: Edit City'
+        print '3: Delete City'
+        choice = raw_input('Enter choice: ')
 
-            #Invalid choice
-            else:
-                print 'Invalid choice!' 
+        #Add city
+        if choice == '1':                
+            name = raw_input('Add Name of City: ')
+            country = raw_input('Add Country ')
+            main.main().add_city(name, country)                
 
-        #Trip menu
-        elif choice == '4':
-            print 'What do you want to do?'
-            print '1: See all trips'
-            print '2: Add trip'
-            print '3: Edit trip'
-            print '4: Delete trip'
-            choice = raw_input('Enter choice: ')
+        #Edit city
+        elif choice == '2':
+            print 'edit City'
+
+        #Delete city
+        elif choice == '3':
+            print 'delete City'
+            id = raw_input('Add ID to City to delete: ')
+            main.main().delete_city(id)                
+
+        #Invalid choice
+        else:
+            print 'Invalid choice!'
+
+    #Trip menu
+    def trip_menu(self):
+        print 'What do you want to do?'
+        print '1: See all trips'
+        print '2: Add trip'
+        print '3: Edit trip'
+        print '4: Delete trip'
+        choice = raw_input('Enter choice: ')
             
-            if choice == '1':
-                trips = main.main().get_all_trips()
-                for line in trips:
-                    print line
+        if choice == '1':
+            trips = main.main().get_all_trips()
+            for line in trips:
+                print line
 
-            elif choice == '2':
-                cities = main.main().get_cities()
-                for line in cities:
-                    print line
-                depart = raw_input('Enter ID for depart city: ')
-                arrive = raw_input('Enter ID for arrive city: ')
-                start = raw_input('Enter start time (00.00): ')
-                end = raw_input('Enter end time (00.00): ')
-                weekday = raw_input('Enter weekday: ')
-                price = raw_input('Enter price (00.00): ')
-                buses = main.main().get_buses()
-                for line in buses:
-                    print line
-                bus = raw_input('Enter bus ID: ')
-                main.main().add_trip(depart, arrive, start, end, weekday, price, bus)
+        elif choice == '2':
+            cities = main.main().get_cities()
+            for line in cities:
+                print line
+            depart = raw_input('Enter ID for depart city: ')
+            arrive = raw_input('Enter ID for arrive city: ')
+            start = raw_input('Enter start time (00.00): ')
+            end = raw_input('Enter end time (00.00): ')
+            weekday = raw_input('Enter weekday: ')
+            price = raw_input('Enter price (00.00): ')
+            buses = main.main().get_buses()
+            for line in buses:
+                print line
+            bus = raw_input('Enter bus ID: ')
+            main.main().add_trip(depart, arrive, start, end, weekday, price, bus)
 
-            else:
-                print 'Invalid choice'
+        else:
+            print 'Invalid choice'
 
-        #Booking menu
+    #Booking menu
+    def booking_menu(self):
+        print 'What do you want to do?'
+        print '1: Add booking'
+        print '2: Delete booking'
+        print '3: See all bookings'
+        print '4: See bookings on a specific date'
+        print '5: See bookings for a specific user'
+        choice = raw_input('Enter choice: ')
+        #Add booking
+        if choice == '1':
+            self.add_new_booking()
+        #Delete booking
+        elif choice == '2':
+            print '2'
+        #See all bookings
+        elif choice == '3':
+            bookings = main.main().get_all_bookings()
+            for line in bookings:
+                print line
+        #See bookings on a specific date
+        elif choice == '4':
+            print '4'
+        #See bookings on specicfic user
         elif choice == '5':
-            print 'What do you want to do?'
-            print '1: Add booking'
-            print '2: Delete booking'
-            print '3: See all bookings'
-            print '4: See bookings on a specific date'
-            print '5: See bookings for a specific user'
-            choice = raw_input('Enter choice: ')
-            #Add booking
-            if choice == '1':
-                self.add_new_booking()
-            #Delete booking
-            elif choice == '2':
-                print '2'
-            #See all bookings
-            elif choice == '3':
-                bookings = main.main().get_all_bookings()
-                for line in bookings:
-                    print line
-            #See bookings on a specific date
-            elif choice == '4':
-                print '4'
-            #See bookings on specicfic user
-            elif choice == '5':
-                print '5'
-            #Invalid choice
-            else:
-                print 'Invalid choice'
-
+            print '5'
         #Invalid choice
         else:
             print 'Invalid choice'
