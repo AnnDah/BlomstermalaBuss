@@ -28,6 +28,10 @@ class CLI(object):
 
     #User menu
     def user_menu(self):
+        self.add_new_booking()
+
+    #Add new booking
+    def add_new_booking(self):
         first_name = raw_input('Enter your first name: ')
         last_name = raw_input('Enter your last name: ')
         print main.main().get_person_id(first_name, last_name)
@@ -202,7 +206,31 @@ class CLI(object):
 
         #Booking menu
         elif choice == '5':
-            print 'Booking menu'
+            print 'What do you want to do?'
+            print '1: Add booking'
+            print '2: Delete booking'
+            print '3: See all bookings'
+            print '4: See bookings on a specific date'
+            print '5: See bookings for a specific user'
+            choice = raw_input('Enter choice: ')
+            #Add booking
+            if choice == '1':
+                self.add_new_booking()
+            #Delete booking
+            elif choice == '2':
+                print '2'
+            #See all bookings
+            elif choice == '3':
+                print main.main().get_all_bookings()
+            #See bookings on a specific date
+            elif choice == '4':
+                print '4'
+            #See bookings on specicfic user
+            elif choice == '5':
+                print '5'
+            #Invalid choice
+            else:
+                print 'Invalid choice'
 
         #Invalid choice
         else:

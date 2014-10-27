@@ -109,5 +109,7 @@ class main(object):
         Booking.Booking().add_booking(new_booking)
     #change booking
     #delete booking
-
+    #Get all bookings
+    def get_all_bookings(self):
+        return Booking.Booking().get_all_bookings()
 

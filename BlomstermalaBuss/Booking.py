@@ -19,6 +19,10 @@ class Booking(object):
 
     #See bookings on Person.ID
 
+    #Get all bookings
+    def get_all_bookings(self):
+        return QuerySQL.QuerySQL().get_all_data('Booking')
+
 
 
 
