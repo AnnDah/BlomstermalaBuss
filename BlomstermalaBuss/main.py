@@ -2,6 +2,7 @@ import Person
 import Bus
 import City
 import Trip
+import Address
 
 class main(object):
     """description of class"""
@@ -21,6 +22,10 @@ class main(object):
     #get person
     def get_person(self, id):
         return Person.Person().get_user(id)
+
+    #Get id of last added person
+    def get_last_person_id(self, id):
+        return Person.Person().get_last_id(id)
 
     #delete person
     def delete_person(self, id):
@@ -65,5 +70,11 @@ class main(object):
     #add booking
     #change booking
     #delete booking
+
+    
+    #add address
+    def add_address(self, town, zipcode, street, person_id, country):
+        Address.Address().add_address(town, zipcode, street, person_id, country)
+    #change adress
 
 

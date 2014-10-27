@@ -48,6 +48,10 @@ class BlomstermalaBuss(object):
                 personal_number = raw_input('Add personal number: ')
                 main.main().add_user(first_name, last_name, personal_number)
 
+             
+
+
+
             #Delete person
             elif choice == '3':
                 id = raw_input('Add ID to person to delete: ')
