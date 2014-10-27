@@ -3,6 +3,7 @@ import Bus
 import City
 import Trip
 import Booking
+import Address
 
 class main(object):
     """description of class"""
@@ -32,6 +33,18 @@ class main(object):
     def get_person_id(self, first_name, last_name):
         return Person.Person().get_person_id(first_name, last_name)
 
+     #Get id of last added person
+    def get_last_person_id(self, id):
+        return Person.Person().get_last_id(id)
+
+    #get person id, search on first name and last name
+    def get_person_id(self, first_name, last_name):
+        return Person.Person().get_person_id(first_name, last_name)
+
+    #Get id of last added person
+    def get_last_person_id(self, id):
+        return Person.Person().get_last_id(id)
+
     #delete person
     def delete_person(self, id):
         Person.Person().delete_person(id)
@@ -49,8 +62,8 @@ class main(object):
 
     #get bus
     def get_bus(self, id):
-        return Bus.Bus().get_bus(id)
-    
+        return Bus.Bus().get_bus(id)        
+
     #get all buses
     def get_buses(self):
         return Bus.Bus().get_buses()        
@@ -112,4 +125,10 @@ class main(object):
     #Get all bookings
     def get_all_bookings(self):
         return Booking.Booking().get_all_bookings()
+
+    #add address
+    def add_address(self, town, zipcode, street, person_id, country):
+        Address.Address().add_address(town, zipcode, street, person_id, country)
+    #change adress
+
 
