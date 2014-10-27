@@ -69,7 +69,14 @@ class QuerySQL(object):
     def get_bus(self, id):
         query = 'SELECT ID, Name, Seats FROM Bus WHERE ID=%s' % (id)
         result = self.db_connection.get_data(query)
-        return result
+        reslist=[]
+        for record in result:
+            resline={}
+            resline['ID']=record[0]
+            resline['Name']=record[1]
+            resline['Seats']=record[2]
+            reslist.append(resline)
+        return reslist
 
     #Update information about bus
     def update_bus(self, id, new_bus):

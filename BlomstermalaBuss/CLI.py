@@ -96,6 +96,7 @@ class CLI(object):
             #See all persons
             if choice == '1':
                 result = main.main().get_all_persons()
+                print '{:<4}'.format('ID'), '{:<20}'.format('Name'), '{:<10}'.format('Personal number')
                 for line in result:
                     print '{:<4}'.format(line['ID']), '{:<20}'.format(line['FirstName'] + ' ' + line['LastName']), '{:<10}'.format(line['PersonalNumber'])
 
@@ -172,7 +173,10 @@ class CLI(object):
         #Edit bus
         elif choice == '2':                            
             id = raw_input('Enter bus ID: ')
-            print main.main().get_bus(id)
+            result = main.main().get_bus(id)
+            print '{:<4}'.format('ID'), '{:<12}'.format('Name'), '{:<5}'.format('Seats')
+            for line in result:
+                print '{:<4}'.format(line['ID']), '{:<12}'.format(line['Name']), '{:<5}'.format(line['Seats'])
             choice = raw_input('Do you want to edit this bus information? Y or N: ').upper()
 
             #Yes edit bus
