@@ -34,11 +34,15 @@ class CLI(object):
     def add_new_booking(self):
         first_name = raw_input('Enter your first name: ')
         last_name = raw_input('Enter your last name: ')
-        print main.main().get_person_id(first_name, last_name)
+        persons = main.main().get_person_id(first_name, last_name)
+        for line in persons:
+            print line
         person = raw_input('Enter your user ID: ')
         #BlomstermalaBuss().test_print()
         search = raw_input('Enter city to depart from: ')
-        print main.main().search_trip(search)
+        trips = main.main().search_trip(search)
+        for line in trips:
+            print line
         trip = raw_input('Enter ID for trip to book: ')
         date = raw_input('Enter wich date you would like to go: ')
         main.main().add_booking(date, trip, person)
@@ -64,7 +68,9 @@ class CLI(object):
 
             #See all persons
             if choice == '1':
-                print main.main().get_all_persons()
+                result = main.main().get_all_persons()
+                for line in result:
+                    print line
 
             #Add person
             elif choice == '2':
