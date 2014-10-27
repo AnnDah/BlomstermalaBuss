@@ -10,6 +10,20 @@ class QuerySQL(object):
         result = self.db_connection.get_data(query)
         return result
 
+    #Get all data from table Person
+    def get_all_data_person(self):
+        query = 'SELECT * from Person'
+        result = self.db_connection.get_data(query)
+        reslist=[]
+        for record in result:
+            resline={}
+            resline['ID']=record[0]
+            resline['FirstName']=record[1]
+            resline['LastName']=record[2]
+            resline['PersonalNumber']=record[3]
+            reslist.append(resline)
+        return reslist
+
     #Add person
     def add_user(self, new_person):
         query = 'INSERT INTO Person (FirstName, LastName, PersonalNumber) VALUES (\'%s\', \'%s\', \'%s\')' % (new_person.first_name, new_person.last_name, new_person.personal_number)

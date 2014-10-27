@@ -94,7 +94,7 @@ class CLI(object):
             if choice == '1':
                 result = main.main().get_all_persons()
                 for line in result:
-                    print line
+                    print '{:<4}'.format(line['ID']), '{:<20}'.format(line['FirstName'] + ' ' + line['LastName']), '{:<10}'.format(line['PersonalNumber'])
 
             #Add user
             elif choice == '2':
