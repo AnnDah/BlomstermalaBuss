@@ -1,16 +1,18 @@
+import QuerySQL
+
 class Address(object):
     """description of class"""
 
     #add
     def add_address(self, town, zipcode, street, person_id, country):
-        new_address = Adress()
-        new_adress.town = town
-        new_adress.zipcode = zipcode
-        new_adress.street = street
-        new_adress.person_id = person_id
-        new_adress.country = country
+        new_address = Address()
+        new_address.town = town
+        new_address.zipcode = zipcode
+        new_address.street = street
+        new_address.person_id = person_id
+        new_address.country = country
 
-        
+        QuerySQL.QuerySQL().add_adress(new_address)
 
 
 

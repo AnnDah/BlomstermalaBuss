@@ -88,4 +88,12 @@ class QuerySQL(object):
         self.db_connection.add_data(query)
 
     #Get id of last person added
+    def get_last_person_id(self):
+        query = 'SELECT ID FROM Person ORDER BY ID DESC LIMIT 1'
+        return self.db_connection.get_data(query) 
+        
+    # add address
+    def add_adress(self, new_address):
+        query = 'INSERT INTO Address (Town, Zipcode, Street, PersonID, Country) values (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\')' % (new_address.town, new_address.zipcode, new_address.street, person_id, Country)
+
 
