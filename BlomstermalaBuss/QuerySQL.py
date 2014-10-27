@@ -76,3 +76,13 @@ class QuerySQL(object):
     def add_trip(self, trip):
         query = 'INSERT INTO Trip (Start, Ends, Weekday, Price, DepartsFrom, ArrivesAt, BusID) VALUES (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\')' % (trip.start_time, trip.end_time, trip.weekday, trip.price, trip.departs_from, trip.arrives_at, trip.bus)
         self.db_connection.add_data(query)
+
+    #Get person id from firstnme and lastname
+    def get_person_id(self, first_name, last_name):
+        query = 'SELECT * FROM Person WHERE FirstName=\'%s\' AND LastName=\'%s\'' % (first_name, last_name)
+        return self.db_connection.get_data(query)
+
+    #Add booking
+    def add_booking(self, new_booking):
+        query = 'INSERT INTO Booking (Date, TripID, PersonID) VALUES (\'%s\', \'%s\', \'%s\')' % (new_booking.date, new_booking.trip, new_booking.person)
+        self.db_connection.add_data(query)

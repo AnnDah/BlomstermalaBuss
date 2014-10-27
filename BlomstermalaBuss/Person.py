@@ -31,4 +31,8 @@ class Person(object):
     def delete_person(self, id):
         QuerySQL.QuerySQL().delete_user(id)
 
+    #get person id on first and last name
+    def get_person_id(self, first_name, last_name):
+        return QuerySQL.QuerySQL().get_person_id(first_name, last_name)
+
 

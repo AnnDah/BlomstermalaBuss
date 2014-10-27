@@ -2,6 +2,7 @@ import Person
 import Bus
 import City
 import Trip
+import Booking
 
 class main(object):
     """description of class"""
@@ -26,6 +27,10 @@ class main(object):
     #get person
     def get_person(self, id):
         return Person.Person().get_user(id)
+
+    #get person id, search on first name and last name
+    def get_person_id(self, first_name, last_name):
+        return Person.Person().get_person_id(first_name, last_name)
 
     #delete person
     def delete_person(self, id):
@@ -96,6 +101,12 @@ class main(object):
         return Trip.Trip().search_trip(search)
 
     #add booking
+    def add_booking(self, date, trip, person):
+        new_booking = Booking.Booking()
+        new_booking.date = date
+        new_booking.trip = trip
+        new_booking.person = person
+        Booking.Booking().add_booking(new_booking)
     #change booking
     #delete booking
 

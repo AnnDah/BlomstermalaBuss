@@ -1,13 +1,15 @@
-import Trip
+import QuerySQL
 
 class Booking(object):
     """description of class"""
 
-    trip = ''
-    date
+    trip = 0
+    date = ''
     person = 0
 
     #Add booking on Trip.ID
+    def add_booking(self, new_booking):
+        QuerySQL.QuerySQL().add_booking(new_booking)
 
     #Edit booking
 

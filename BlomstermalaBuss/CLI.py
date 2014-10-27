@@ -28,10 +28,16 @@ class CLI(object):
 
     #User menu
     def user_menu(self):
-        print 'Search trip'
+        first_name = raw_input('Enter your first name: ')
+        last_name = raw_input('Enter your last name: ')
+        print main.main().get_person_id(first_name, last_name)
+        person = raw_input('Enter your user ID: ')
         #BlomstermalaBuss().test_print()
         search = raw_input('Enter city to depart from: ')
         print main.main().search_trip(search)
+        trip = raw_input('Enter ID for trip to book: ')
+        date = raw_input('Enter wich date you would like to go: ')
+        main.main().add_booking(date, trip, person)
 
     #Admin menu
     def admin_menu(self):
