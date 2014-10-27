@@ -198,17 +198,23 @@ class CLI(object):
             choice = raw_input('Enter choice: ')
             
             if choice == '1':
-                print main.main().get_all_trips()
+                trips = main.main().get_all_trips()
+                for line in trips:
+                    print line
 
             elif choice == '2':
-                print main.main().get_cities()
+                cities = main.main().get_cities()
+                for line in cities:
+                    print line
                 depart = raw_input('Enter ID for depart city: ')
                 arrive = raw_input('Enter ID for arrive city: ')
                 start = raw_input('Enter start time (00.00): ')
                 end = raw_input('Enter end time (00.00): ')
                 weekday = raw_input('Enter weekday: ')
                 price = raw_input('Enter price (00.00): ')
-                print main.main().get_buses()
+                buses = main.main().get_buses()
+                for line in buses:
+                    print line
                 bus = raw_input('Enter bus ID: ')
                 main.main().add_trip(depart, arrive, start, end, weekday, price, bus)
 
@@ -232,7 +238,9 @@ class CLI(object):
                 print '2'
             #See all bookings
             elif choice == '3':
-                print main.main().get_all_bookings()
+                bookings = main.main().get_all_bookings()
+                for line in bookings:
+                    print line
             #See bookings on a specific date
             elif choice == '4':
                 print '4'
