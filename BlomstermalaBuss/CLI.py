@@ -73,6 +73,7 @@ class CLI(object):
                 personal_number = raw_input('Add personal number: ')
                 main.main().add_user(first_name, last_name, personal_number)
 
+
              
 
 
