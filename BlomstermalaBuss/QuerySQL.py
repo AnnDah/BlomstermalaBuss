@@ -94,6 +94,7 @@ class QuerySQL(object):
         
     # add address
     def add_adress(self, new_address):
-        query = 'INSERT INTO Address (Town, Zipcode, Street, PersonID, Country) values (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\')' % (new_address.town, new_address.zipcode, new_address.street, person_id, Country)
+        query = 'INSERT INTO Address (Town, Zipcode, Street, PersonID, Country) values (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\')' % (new_address.town, new_address.zipcode, new_address.street, new_address.person_id, new_address.country)
+        self.db_connection.add_data(query)
 
 

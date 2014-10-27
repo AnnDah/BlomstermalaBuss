@@ -33,10 +33,6 @@ class main(object):
     def get_person_id(self, first_name, last_name):
         return Person.Person().get_person_id(first_name, last_name)
 
-     #Get id of last added person
-    def get_last_person_id(self, id):
-        return Person.Person().get_last_id(id)
-
     #get person id, search on first name and last name
     def get_person_id(self, first_name, last_name):
         return Person.Person().get_person_id(first_name, last_name)

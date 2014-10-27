@@ -99,6 +99,8 @@ class CLI(object):
             #Add user
             elif choice == '2':
                 #add person
+                last_added = main.main().get_last_person_id()
+                print last_added
                 first_name = raw_input('Add first name: ')
                 last_name = raw_input('Add last name: ')
                 personal_number = raw_input('Add personal number: ')
@@ -106,6 +108,7 @@ class CLI(object):
                 
                 #get last added person id 
                 last_added = main.main().get_last_person_id()
+                print last_added
                 
                 #add address
                 street = raw_input('Add street: ')
