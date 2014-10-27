@@ -72,28 +72,17 @@ class QuerySQL(object):
         query = 'SELECT * FROM Trip WHERE DepartsFrom=(SELECT ID FROM City WHERE Name=\'%s\')' % (search)
         return self.db_connection.get_data(query)
 
-    def add_address(self, new_adress):
-        query = 'INSERT INTO Address (Town, Zipcode, Street, PersonID, Country) (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\')' % (new_address.town, new_address.zipcode, new_address.street, new_address.person_id, country)
+    #Add trip
+    def add_trip(self, trip):
+        query = 'INSERT INTO Trip (Start, Ends, Weekday, Price, DepartsFrom, ArrivesAt, BusID) VALUES (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\')' % (trip.start_time, trip.end_time, trip.weekday, trip.price, trip.departs_from, trip.arrives_at, trip.bus)
         self.db_connection.add_data(query)
 
-    def get_last_person_id(self, id):
-        query = 'SELECT ID FROM Person ORDER BY ID DESC LIMIT 1'
+    #Get person id from firstnme and lastname
+    def get_person_id(self, first_name, last_name):
+        query = 'SELECT * FROM Person WHERE FirstName=\'%s\' AND LastName=\'%s\'' % (first_name, last_name)
+        return self.db_connection.get_data(query)
+
+    #Add booking
+    def add_booking(self, new_booking):
+        query = 'INSERT INTO Booking (Date, TripID, PersonID) VALUES (\'%s\', \'%s\', \'%s\')' % (new_booking.date, new_booking.trip, new_booking.person)
         self.db_connection.add_data(query)
-
-            #            query = text("""INSERT INTO HR_PunchBatch
-    #(StoreID, UserID, Source,Timestamp,Status)
-    #    VALUES (:StoreID,:UserID,:Source,NOW(),:Status)""")
-
-    #g.engine.execute(query,
-    #    StoreID=StoreID,
-    #    UserID=session['UserID'],
-    #    Source=source,
-    #    Status='New')
-
-    #batch_id = g.engine.execute('SELECT LAST_INSERT_ID() AS id').fetchone()
-    #return batch_id['id']
-
-    #    #Add city
-    #def add_city(self, new_city):
-    #    query = 'INSERT INTO City (Name, Country) VALUES (\'%s\', \'%s\')' % (new_city.name, new_city.country)
-    #    self.db_connection.add_data(query)
