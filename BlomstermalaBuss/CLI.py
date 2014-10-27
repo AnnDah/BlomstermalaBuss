@@ -69,14 +69,17 @@ class CLI(object):
         first_name = raw_input('Enter your first name: ')
         last_name = raw_input('Enter your last name: ')
         persons = main.main().get_person_id(first_name, last_name)
+        print '{:<4}'.format('ID'), '{:<20}'.format('Name'), '{:<10}'.format('Personal number')
         for line in persons:
-            print line
+            print '{:<4}'.format(line['ID']), '{:<20}'.format(line['FirstName'] + ' ' + line['LastName']), '{:<10}'.format(line['PersonalNumber'])
         person = raw_input('Enter your user ID: ')
         #BlomstermalaBuss().test_print()
         search = raw_input('Enter city to depart from: ')
         trips = main.main().search_trip(search)
+        print 'Departures from: %s' %(search)
+        print '{:<4}'.format('ID'), '{:<6}'.format('Starts'), '{:<5}'.format('Ends'), '{:<8}'.format('Weekday'), '{:<6}'.format('Price'), '{:<10}'.format('Arrives')
         for line in trips:
-            print line
+            print '{:<4}'.format(line['ID']), '{:<6}'.format(line['Start']), '{:<5}'.format(line['Ends']), '{:<8}'.format(line['Weekday']), '{:<6}'.format(line['Price']), '{:<10}'.format(line['ArrivesAt'])
         trip = raw_input('Enter ID for trip to book: ')
         date = raw_input('Enter wich date you would like to go: ')
         main.main().add_booking(date, trip, person)
