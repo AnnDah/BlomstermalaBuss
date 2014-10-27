@@ -79,6 +79,15 @@ class CLI(object):
                 personal_number = raw_input('Add personal number: ')
                 main.main().add_user(first_name, last_name, personal_number)
 
+                last_added = main.main().get_last_person_id(id)
+
+
+                town = raw_input('Add town of recidence: ')
+                zipcode = raw_input('Add your zipcode: ')
+                street = raw_input('Add street: ')
+                person_id = last_added
+                country = raw_input('Add Country: ')
+                main.main().add_address(town, zipcode, street, person_id, country)                
 
              
 
