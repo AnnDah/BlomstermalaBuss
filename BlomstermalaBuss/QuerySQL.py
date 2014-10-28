@@ -209,4 +209,18 @@ class QuerySQL(object):
             reslist.append(resline)
         return reslist
 
+    #Get all bookings
+    def get_all_bookings(self):
+        query = 'SELECT * FROM Booking'
+        result = self.db_connection.get_data(query)
+        reslist=[]
+        for record in result:
+            resline={}
+            resline['ID']=record[0]
+            resline['Date']=record[1]
+            resline['TripID']=record[2]
+            resline['PersonID']=record[3]
+            reslist.append(resline)
+        return reslist
+
 

@@ -274,8 +274,9 @@ class CLI(object):
 
         elif choice == '2':
             cities = main.main().get_cities()
+            print '{:<4}'.format('ID'), '{:<10}'.format('Name'), '{:<10}'.format('Country')
             for line in cities:
-                print line
+                print '{:<4}'.format(line['ID']), u'{:<10}'.format(line['Name']), u'{:<10}'.format(line['Country'])
             depart = raw_input('Enter ID for depart city: ')
             arrive = raw_input('Enter ID for arrive city: ')
             start = raw_input('Enter start time (00.00): ')
@@ -283,8 +284,9 @@ class CLI(object):
             weekday = raw_input('Enter weekday: ')
             price = raw_input('Enter price (00.00): ')
             buses = main.main().get_buses()
+            print '{:<4}'.format('ID'), '{:<10}'.format('Name'), '{:<10}'.format('Seats')
             for line in buses:
-                print line
+                print '{:<4}'.format(line['ID']), u'{:<10}'.format(line['Name']), u'{:<10}'.format(line['Seats'])
             bus = raw_input('Enter bus ID: ')
             main.main().add_trip(depart, arrive, start, end, weekday, price, bus)
 
@@ -324,8 +326,9 @@ class CLI(object):
         #See all bookings
         elif choice == '3':
             bookings = main.main().get_all_bookings()
+            print '{:<4}'.format('ID'), u'{:<10}'.format('Date'), u'{:<4}'.format('TripID'), u'{:<4}'.format('PersonID')
             for line in bookings:
-                print line
+                print '{:<4}'.format(line['ID']), '{:<10}'.format(line['Date']), u'{:<4}'.format(line['TripID']), u'{:<4}'.format(line['PersonID'])
         
         #See bookings on a specific date
         #Doesn't work yet

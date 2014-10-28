@@ -21,7 +21,7 @@ class Booking(object):
 
     #Get all bookings
     def get_all_bookings(self):
-        return QuerySQL.QuerySQL().get_all_data('Booking')
+        return QuerySQL.QuerySQL().get_all_bookings()
 
 
 
