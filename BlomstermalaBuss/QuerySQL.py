@@ -10,6 +10,20 @@ class QuerySQL(object):
         result = self.db_connection.get_data(query)
         return result
 
+    #Get all data from table Person
+    def get_all_data_person(self):
+        query = 'SELECT * from Person'
+        result = self.db_connection.get_data(query)
+        reslist=[]
+        for record in result:
+            resline={}
+            resline['ID']=record[0]
+            resline['FirstName']=record[1]
+            resline['LastName']=record[2]
+            resline['PersonalNumber']=record[3]
+            reslist.append(resline)
+        return reslist
+
     #Add person
     def add_user(self, new_person):
         query = 'INSERT INTO Person (FirstName, LastName, PersonalNumber) VALUES (\'%s\', \'%s\', \'%s\')' % (new_person.first_name, new_person.last_name, new_person.personal_number)
@@ -55,7 +69,14 @@ class QuerySQL(object):
     def get_bus(self, id):
         query = 'SELECT ID, Name, Seats FROM Bus WHERE ID=%s' % (id)
         result = self.db_connection.get_data(query)
-        return result
+        reslist=[]
+        for record in result:
+            resline={}
+            resline['ID']=record[0]
+            resline['Name']=record[1]
+            resline['Seats']=record[2]
+            reslist.append(resline)
+        return reslist
 
     #Update information about bus
     def update_bus(self, id, new_bus):
@@ -69,8 +90,20 @@ class QuerySQL(object):
 
     #Search trip on depart from
     def search_trip(self, search):
-        query = 'SELECT * FROM Trip WHERE DepartsFrom=(SELECT ID FROM City WHERE Name=\'%s\')' % (search)
-        return self.db_connection.get_data(query)
+        #query = 'SELECT * FROM Trip WHERE DepartsFrom=(SELECT ID FROM City WHERE Name=\'%s\')' % (search)
+        query = 'SELECT Trip.ID, Start, Ends, Weekday, Price, City.Name AS ArrivesAt FROM Trip INNER JOIN City ON Trip.ArrivesAt=City.ID WHERE Trip.DepartsFrom=(SELECT ID FROM City WHERE Name=\'%s\')' % (search)
+        result = self.db_connection.get_data(query)
+        reslist=[]
+        for record in result:
+            resline={}
+            resline['ID']=record[0]
+            resline['Start']=record[1]
+            resline['Ends']=record[2]
+            resline['Weekday']=record[3]
+            resline['Price']=record[4]
+            resline['ArrivesAt']=record[5]
+            reslist.append(resline)
+        return reslist
 
     #Add trip
     def add_trip(self, trip):
@@ -80,7 +113,16 @@ class QuerySQL(object):
     #Get person id from firstnme and lastname
     def get_person_id(self, first_name, last_name):
         query = 'SELECT * FROM Person WHERE FirstName=\'%s\' AND LastName=\'%s\'' % (first_name, last_name)
-        return self.db_connection.get_data(query)
+        result = self.db_connection.get_data(query)
+        reslist=[]
+        for record in result:
+            resline={}
+            resline['ID']=record[0]
+            resline['FirstName']=record[1]
+            resline['LastName']=record[2]
+            resline['PersonalNumber']=record[3]
+            reslist.append(resline)
+        return reslist
 
     #Add booking
     def add_booking(self, new_booking):
