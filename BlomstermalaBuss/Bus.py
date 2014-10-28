@@ -29,7 +29,7 @@ class Bus(object):
     
     #get buses
     def get_buses(self):
-        return QuerySQL.QuerySQL().get_all_data('Bus')
+        return QuerySQL.QuerySQL().get_buses()
         
 
         
