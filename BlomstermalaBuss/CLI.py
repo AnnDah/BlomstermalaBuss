@@ -208,9 +208,11 @@ class CLI(object):
             main.main().delete_bus(id)
 
         #See list of buses
-        #Doesn't work yet
         elif choice == '4':
-            print 'See list of buses'
+            result = main.main().get_buses()
+            print '{:<4}'.format('ID'), '{:<12}'.format('Name'), '{:<5}'.format('Seats')
+            for line in result:
+                print '{:<4}'.format(line['ID']), '{:<12}'.format(line['Name']), '{:<5}'.format(line['Seats'])
 
         #Invalid choice
         else:
