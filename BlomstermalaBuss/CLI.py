@@ -75,7 +75,6 @@ class CLI(object):
         for line in persons:
             print '{:<4}'.format(line['ID']), '{:<20}'.format(line['FirstName'] + ' ' + line['LastName']), '{:<10}'.format(line['PersonalNumber'])
         person = raw_input('Enter your user ID: ')
-        #BlomstermalaBuss().test_print()
         search = raw_input('Enter city to depart from: ')
         trips = main.main().search_trip(search)
         print 'Departures from: %s' %(search)
@@ -128,6 +127,7 @@ class CLI(object):
                 main.main().add_phone(phone_number, last_added)   
 
             #Delete person
+            #Doesn't work yet
             elif choice == '3':
                 id = raw_input('Add ID to person to delete: ')
                 main.main().delete_person(id)
@@ -140,9 +140,9 @@ class CLI(object):
                 for line in result:
                     print '{:<4}'.format(line['ID']), '{:<20}'.format(line['FirstName'] + ' ' + line['LastName']), '{:<10}'.format(line['PersonalNumber'])
                 choice = raw_input('Do you want to edit this persons information? Y or N: ').upper()
-                    #Yes edit
+                #Yes edit
                 if choice == 'Y':
-                    print 'YES'
+                    print 'Please enter information about the selected person'
                     first_name = raw_input('Add first name: ')
                     last_name = raw_input('Add last name: ')
                     personal_number = raw_input('Add personal number: ')
@@ -150,7 +150,7 @@ class CLI(object):
                 
                 #No don't edit
                 elif choice == 'N':
-                    print 'NO'
+                    print 'You choose not to edit the information.'
 
                 #Invalid choice
                 else:
@@ -166,6 +166,7 @@ class CLI(object):
         print '1: Add bus'
         print '2: Edit bus'
         print '3: Delete bus'
+        print '4: See list of available buses'
         choice = raw_input('Enter choice: ')
 
         #Add bus
@@ -185,14 +186,14 @@ class CLI(object):
 
             #Yes edit bus
             if choice == 'Y':
-                print 'YES'
+                print 'Please enter information about the selected bus.'
                 name = raw_input('Add name: ')
                 seats = raw_input('Add seats: ')                                 
                 main.main().edit_bus(id, name, seats)                        
                 
             #No don't edit bus
             elif choice == 'N':
-                print 'NO'
+                print 'You choose not to edit the information.'
 
             #Invalid choice
             else:
@@ -200,10 +201,16 @@ class CLI(object):
 
 
         #Delete bus
+        #Doesn't work yet
         elif choice == '3':
             print 'delete bus'
             id = raw_input('Add ID to bus to delete: ')
             main.main().delete_bus(id)
+
+        #See list of buses
+        #Doesn't work yet
+        elif choice == '4':
+            print 'See list of buses'
 
         #Invalid choice
         else:
@@ -212,9 +219,10 @@ class CLI(object):
     #City menu
     def city_menu(self):
         print 'What do you want to do?'
-        print '1: Add City'
-        print '2: Edit City'
-        print '3: Delete City'
+        print '1: Add city'
+        print '2: Edit city'
+        print '3: Delete city'
+        print '4: See list of citys'
         choice = raw_input('Enter choice: ')
 
         #Add city
@@ -224,14 +232,21 @@ class CLI(object):
             main.main().add_city(name, country)                
 
         #Edit city
+        #Doesn't work yet
         elif choice == '2':
             print 'edit City'
 
         #Delete city
+        #Doesn't work yet
         elif choice == '3':
             print 'delete City'
             id = raw_input('Add ID to City to delete: ')
-            main.main().delete_city(id)                
+            main.main().delete_city(id)  
+            
+        #See list of cities
+        #Doesn't work yet
+        elif choice == '4':
+            print 'See list of citys'              
 
         #Invalid choice
         else:
@@ -268,6 +283,17 @@ class CLI(object):
             bus = raw_input('Enter bus ID: ')
             main.main().add_trip(depart, arrive, start, end, weekday, price, bus)
 
+        #Edit trip
+        #Doesn't work yet
+        elif choice == '3':
+            print 'Edit trip'
+
+        #Delete trip
+        #Doesn't work yet
+        elif choice == '4':
+            print 'Delete trip'
+
+        #Invalid choice
         else:
             print 'Invalid choice'
 
@@ -280,23 +306,32 @@ class CLI(object):
         print '4: See bookings on a specific date'
         print '5: See bookings for a specific user'
         choice = raw_input('Enter choice: ')
+
         #Add booking
         if choice == '1':
             self.add_new_booking()
+        
         #Delete booking
+        #Doesn't work yet
         elif choice == '2':
-            print '2'
+            print 'Delete booking'
+
         #See all bookings
         elif choice == '3':
             bookings = main.main().get_all_bookings()
             for line in bookings:
                 print line
+        
         #See bookings on a specific date
+        #Doesn't work yet
         elif choice == '4':
-            print '4'
+            print 'See bookings on a specific date'
+
         #See bookings on specicfic user
+        #Doesn't work yet
         elif choice == '5':
-            print '5'
+            print 'See bookings on specicfic user'
+
         #Invalid choice
         else:
             print 'Invalid choice'
