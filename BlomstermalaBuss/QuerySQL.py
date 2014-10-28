@@ -56,9 +56,17 @@ class QuerySQL(object):
 
     #Get info about specific person
     def get_person(self, id):
-        query = 'SELECT ID, FirstName, LastName, PersonalNumber FROM Person WHERE ID=%s' % (id)
+        query = 'SELECT * FROM Person WHERE ID=%s' % (id)
         result = self.db_connection.get_data(query)
-        return result
+        reslist=[]
+        for record in result:
+            resline={}
+            resline['ID']=record[0]
+            resline['FirstName']=record[1]
+            resline['LastName']=record[2]
+            resline['PersonalNumber']=record[3]
+            reslist.append(resline)
+        return reslist
 
     #Update information about person
     def update_person(self, id, new_person):

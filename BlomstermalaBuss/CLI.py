@@ -135,7 +135,10 @@ class CLI(object):
             #Edit person
             elif choice == '4':
                 id = raw_input('Enter person ID: ')
-                print main.main().get_person(id)
+                result = main.main().get_person(id)
+                print '{:<4}'.format('ID'), '{:<20}'.format('Name'), '{:<10}'.format('Personal number')
+                for line in result:
+                    print '{:<4}'.format(line['ID']), '{:<20}'.format(line['FirstName'] + ' ' + line['LastName']), '{:<10}'.format(line['PersonalNumber'])
                 choice = raw_input('Do you want to edit this persons information? Y or N: ').upper()
                     #Yes edit
                 if choice == 'Y':
