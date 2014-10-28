@@ -29,6 +29,8 @@ class CLI(object):
     #User menu
     def user_menu(self):
         self.add_new_booking()
+        #search trip
+        #book trip
 
     #Admin menu
     def admin_menu(self):
@@ -103,17 +105,15 @@ class CLI(object):
             #Add user
             elif choice == '2':
                 #add person
-                last_added = main.main().get_last_person_id()
-                print last_added
-                print 'This function is not working so do not continue!!!!!!'
                 first_name = raw_input('Add first name: ')
                 last_name = raw_input('Add last name: ')
                 personal_number = raw_input('Add personal number: ')
                 main.main().add_user(first_name, last_name, personal_number)
                 
                 #get last added person id 
-                last_added = main.main().get_last_person_id()
-                print last_added
+                reslist = main.main().get_last_person_id()
+                for line in reslist:
+                    last_added = line['ID']
                 
                 #add address
                 street = raw_input('Add street: ')
@@ -124,7 +124,8 @@ class CLI(object):
                 main.main().add_address(town, zipcode, street, person_id, country)
                 
                 #add phone nummber
-                #Yet to be written      
+                phone_number = raw_input('Enter phone number: ')
+                main.main().add_phone(phone_number, last_added)   
 
             #Delete person
             elif choice == '3':

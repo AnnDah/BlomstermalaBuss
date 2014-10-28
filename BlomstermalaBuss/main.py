@@ -4,6 +4,7 @@ import City
 import Trip
 import Booking
 import Address
+import Phone
 
 class main(object):
     """description of class"""
@@ -126,5 +127,12 @@ class main(object):
     def add_address(self, town, zipcode, street, person_id, country):
         Address.Address().add_address(town, zipcode, street, person_id, country)
     #change adress
+
+    #Add phone number
+    def add_phone(self, phone_number, person_id):
+        new_phone = Phone.Phone()
+        new_phone.phone_number = phone_number
+        new_phone.person_id = person_id
+        Phone.Phone().add_phone(new_phone)
 
 

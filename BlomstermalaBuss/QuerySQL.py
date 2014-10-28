@@ -92,6 +92,7 @@ class QuerySQL(object):
     def search_trip(self, search):
         #query = 'SELECT * FROM Trip WHERE DepartsFrom=(SELECT ID FROM City WHERE Name=\'%s\')' % (search)
         query = 'SELECT Trip.ID, Start, Ends, Weekday, Price, City.Name AS ArrivesAt FROM Trip INNER JOIN City ON Trip.ArrivesAt=City.ID WHERE Trip.DepartsFrom=(SELECT ID FROM City WHERE Name=\'%s\')' % (search)
+        #SELECT Trip.ID, Start, Ends, Weekday, Price, a.Name AS DepartsFrom, b.Name AS ArrivesAt FROM Trip INNER JOIN City a ON Trip.DepartsFrom=a.ID INNER JOIN City b ON Trip.ArrivesAt=b.ID WHERE Trip.DepartsFrom=(SELECT ID FROM City WHERE Name=\'%s\')
         result = self.db_connection.get_data(query)
         reslist=[]
         for record in result:
@@ -132,11 +133,22 @@ class QuerySQL(object):
     #Get id of last person added
     def get_last_person_id(self):
         query = 'SELECT ID FROM Person ORDER BY ID DESC LIMIT 1'
-        return self.db_connection.get_data(query) 
+        result = self.db_connection.get_data(query)
+        reslist = []
+        for record in result:
+            resline = {}
+            resline['ID']=record[0]
+            reslist.append(resline)
+        return reslist
         
     # add address
     def add_adress(self, new_address):
-        query = 'INSERT INTO Address (Town, Zipcode, Street, PersonID, Country) values (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\')' % (new_address.town, new_address.zipcode, new_address.street, new_address.person_id, new_address.country)
+        query = 'INSERT INTO Address (Town, Zipcode, Street, PersonID, Country) VALUES (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\')' % (new_address.town, new_address.zipcode, new_address.street, new_address.person_id, new_address.country)
+        self.db_connection.add_data(query)
+
+    #Add phone number
+    def add_phone(self, new_phone):
+        query = 'INSERT INTO Phone (PersonID, PhoneNumber) VALUES (\'%s\', \'%s\')' % (new_phone.person_id, new_phone.phone_number)
         self.db_connection.add_data(query)
 
 

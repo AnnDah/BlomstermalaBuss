@@ -49,6 +49,9 @@
     <Compile Include="Person.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Phone.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="QuerySQL.py">
       <SubType>Code</SubType>
     </Compile>
