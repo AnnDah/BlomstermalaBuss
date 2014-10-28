@@ -246,9 +246,7 @@ class CLI(object):
             main.main().delete_city(id)  
             
         #See list of cities
-        #Doesn't work yet
         elif choice == '4':
-            print 'See list of citys'
             result = main.main().get_cities()
             print '{:<4}'.format('ID'), '{:<20}'.format('Name'), '{:<20}'.format('Country')
             for line in result:
