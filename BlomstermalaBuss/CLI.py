@@ -248,7 +248,11 @@ class CLI(object):
         #See list of cities
         #Doesn't work yet
         elif choice == '4':
-            print 'See list of citys'              
+            print 'See list of citys'
+            result = main.main().get_cities()
+            print '{:<4}'.format('ID'), '{:<20}'.format('Name'), '{:<20}'.format('Country')
+            for line in result:
+                print '{:<4}'.format(line['ID']), '{:<20}'.format(line['Name']), '{:<20}'.format(line['Country'])        
 
         #Invalid choice
         else:

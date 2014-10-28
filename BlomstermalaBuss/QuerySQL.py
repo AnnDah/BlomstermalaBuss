@@ -188,4 +188,17 @@ class QuerySQL(object):
         query = 'INSERT INTO Phone (PersonID, PhoneNumber) VALUES (\'%s\', \'%s\')' % (new_phone.person_id, new_phone.phone_number)
         self.db_connection.add_data(query)
 
+    #Get information about all cities
+    def get_cities(self):
+        query = 'SELECT ID, Name, Country FROM City'
+        result = self.db_connection.get_data(query)
+        reslist=[]
+        for record in result:
+            resline={}
+            resline['ID']=record[0]
+            resline['Name']=record[1]
+            resline['Country']=record[2]
+            reslist.append(resline)
+        return reslist
+
 
