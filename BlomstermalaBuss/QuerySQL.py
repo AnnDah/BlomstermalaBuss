@@ -98,8 +98,24 @@ class QuerySQL(object):
 
     #Search trip on depart from
     def search_trip(self, search):
-        #query = 'SELECT * FROM Trip WHERE DepartsFrom=(SELECT ID FROM City WHERE Name=\'%s\')' % (search)
         query = 'SELECT Trip.ID, Start, Ends, Weekday, Price, a.Name AS DepartsFrom, b.Name AS ArrivesAt FROM Trip INNER JOIN City a ON Trip.DepartsFrom=a.ID INNER JOIN City b ON Trip.ArrivesAt=b.ID WHERE Trip.DepartsFrom=(SELECT ID FROM City WHERE Name=\'%s\')' % (search)
+        result = self.db_connection.get_data(query)
+        reslist=[]
+        for record in result:
+            resline={}
+            resline['ID']=record[0]
+            resline['Start']=record[1]
+            resline['Ends']=record[2]
+            resline['Weekday']=record[3]
+            resline['Price']=record[4]
+            resline['DepartsFrom']=record[5]
+            resline['ArrivesAt']=record[6]
+            reslist.append(resline)
+        return reslist
+
+    #See all trips
+    def get_all_trips(self):
+        query = 'SELECT Trip.ID, Start, Ends, Weekday, Price, a.Name AS DepartsFrom, b.Name AS ArrivesAt FROM Trip INNER JOIN City a ON Trip.DepartsFrom=a.ID INNER JOIN City b ON Trip.ArrivesAt=b.ID '
         result = self.db_connection.get_data(query)
         reslist=[]
         for record in result:

@@ -14,7 +14,7 @@ class Trip(object):
 
     #Get all trips
     def get_all_trips(self):
-        return QuerySQL.QuerySQL().get_all_data('Trip')
+        return QuerySQL.QuerySQL().get_all_trips()
 
     #add trip
 

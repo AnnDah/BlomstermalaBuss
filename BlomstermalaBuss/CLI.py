@@ -248,8 +248,9 @@ class CLI(object):
             
         if choice == '1':
             trips = main.main().get_all_trips()
+            print '{:<4}'.format('ID'), '{:<6}'.format('Starts'), '{:<5}'.format('Ends'), '{:<8}'.format('Weekday'), '{:<6}'.format('Price'), '{:<10}'.format('Departs'), '{:<10}'.format('Arrives')
             for line in trips:
-                print line
+                print '{:<4}'.format(line['ID']), '{:<6}'.format(line['Start']), '{:<5}'.format(line['Ends']), '{:<8}'.format(line['Weekday']), '{:<6}'.format(line['Price']), '{:<10}'.format(line['DepartsFrom']), '{:<10}'.format(line['ArrivesAt'])
 
         elif choice == '2':
             cities = main.main().get_cities()
