@@ -201,4 +201,50 @@ class QuerySQL(object):
             reslist.append(resline)
         return reslist
 
-
+    #Get information about all bookings
+    def get_bookings(self):
+        query = """
+            select 
+             b.ID AS TripID,
+             b.Date,
+             t.Start,
+             t.Ends,
+             t.Price,
+             dc.Name as FromCity,
+             dc.Country as FromCountry,
+             ac.Name as ToCity,
+             ac.Country as ToCountry,
+             bus.Name as BusName,
+             p.FirstName,
+             p.LastName,
+             p.PersonalNumber
+             from Booking as b
+            join Trip as t
+             on t.id = b.TripID
+            join Person as p
+             on p.id = b.PersonID
+            join City as dc
+             on t.DepartsFrom = dc.ID
+            join City as ac
+             on t.ArrivesAt = ac.ID
+            join Bus as bus
+             on t.BusID = bus.id"""
+        result = self.db_connection.get_data(query)
+        reslist=[]
+        for record in result:
+            resline={}
+            resline['TripID']=record[0]
+            resline['Date']=record[1]
+            resline['Start']=record[2]
+            resline['Ends']=record[3]
+            resline['Price']=record[4]
+            resline['FromCity']=record[5]
+            resline['FromCountry']=record[6]
+            resline['ToCity']=record[7]
+            resline['ToCountry']=record[8]
+            resline['BusName']=record[9]
+            resline['FirstName']=record[10]
+            resline['LastName']=record[11]
+            resline['PersonalNumber']=record[12]
+            reslist.append(resline)
+        return reslist
