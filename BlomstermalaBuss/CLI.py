@@ -1,4 +1,5 @@
 import main
+import sys
 
 class CLI(object):
     """description of class"""
@@ -81,7 +82,7 @@ class CLI(object):
         print 'Departures from: %s' %(search)
         print '{:<4}'.format('ID'), '{:<6}'.format('Starts'), '{:<5}'.format('Ends'), '{:<8}'.format('Weekday'), '{:<6}'.format('Price'), '{:<10}'.format('Departs'), '{:<10}'.format('Arrives')
         for line in trips:
-            print '{:<4}'.format(line['ID']), '{:<6}'.format(line['Start']), '{:<5}'.format(line['Ends']), '{:<8}'.format(line['Weekday']), '{:<6}'.format(line['Price']), '{:<10}'.format(line['DepartsFrom']), '{:<10}'.format(line['ArrivesAt'])
+            print '{:<4}'.format(line['ID']), '{:<6}'.format(line['Start']), '{:<5}'.format(line['Ends']), '{:<8}'.format(line['Weekday']), '{:<6}'.format(line['Price']), u'{:<10}'.format(line['DepartsFrom']), u'{:<10}'.format(line['ArrivesAt'])
         trip = raw_input('Enter ID for trip to book: ')
         date = raw_input('Enter wich date you would like to go: ')
         main.main().add_booking(date, trip, person)
@@ -250,7 +251,7 @@ class CLI(object):
             trips = main.main().get_all_trips()
             print '{:<4}'.format('ID'), '{:<6}'.format('Starts'), '{:<5}'.format('Ends'), '{:<8}'.format('Weekday'), '{:<6}'.format('Price'), '{:<10}'.format('Departs'), '{:<10}'.format('Arrives')
             for line in trips:
-                print '{:<4}'.format(line['ID']), '{:<6}'.format(line['Start']), '{:<5}'.format(line['Ends']), '{:<8}'.format(line['Weekday']), '{:<6}'.format(line['Price']), '{:<10}'.format(line['DepartsFrom']), '{:<10}'.format(line['ArrivesAt'])
+                print '{:<4}'.format(line['ID']), '{:<6}'.format(line['Start']), '{:<5}'.format(line['Ends']), '{:<8}'.format(line['Weekday']), '{:<6}'.format(line['Price']), u'{:<10}'.format(line['DepartsFrom']), u'{:<10}'.format(line['ArrivesAt'])
 
         elif choice == '2':
             cities = main.main().get_cities()
