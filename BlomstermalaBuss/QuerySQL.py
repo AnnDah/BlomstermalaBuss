@@ -91,8 +91,7 @@ class QuerySQL(object):
     #Search trip on depart from
     def search_trip(self, search):
         #query = 'SELECT * FROM Trip WHERE DepartsFrom=(SELECT ID FROM City WHERE Name=\'%s\')' % (search)
-        query = 'SELECT Trip.ID, Start, Ends, Weekday, Price, City.Name AS ArrivesAt FROM Trip INNER JOIN City ON Trip.ArrivesAt=City.ID WHERE Trip.DepartsFrom=(SELECT ID FROM City WHERE Name=\'%s\')' % (search)
-        #SELECT Trip.ID, Start, Ends, Weekday, Price, a.Name AS DepartsFrom, b.Name AS ArrivesAt FROM Trip INNER JOIN City a ON Trip.DepartsFrom=a.ID INNER JOIN City b ON Trip.ArrivesAt=b.ID WHERE Trip.DepartsFrom=(SELECT ID FROM City WHERE Name=\'%s\')
+        query = 'SELECT Trip.ID, Start, Ends, Weekday, Price, a.Name AS DepartsFrom, b.Name AS ArrivesAt FROM Trip INNER JOIN City a ON Trip.DepartsFrom=a.ID INNER JOIN City b ON Trip.ArrivesAt=b.ID WHERE Trip.DepartsFrom=(SELECT ID FROM City WHERE Name=\'%s\')' % (search)
         result = self.db_connection.get_data(query)
         reslist=[]
         for record in result:
@@ -102,7 +101,8 @@ class QuerySQL(object):
             resline['Ends']=record[2]
             resline['Weekday']=record[3]
             resline['Price']=record[4]
-            resline['ArrivesAt']=record[5]
+            resline['DepartsFrom']=record[5]
+            resline['ArrivesAt']=record[6]
             reslist.append(resline)
         return reslist
 
