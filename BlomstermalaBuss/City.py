@@ -17,4 +17,8 @@ class City(object):
     #get all cities
     def get_cities(self):
         return QuerySQL.QuerySQL().get_cities()
+
+    #Get depart cities
+    def get_depart_cities(self):
+        return QuerySQL.QuerySQL().get_depart_cities()
         

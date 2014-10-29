@@ -10,8 +10,8 @@ class dbConnector(object):
         db = MySQLdb.connect(host="195.178.235.60", user="ad4259", db="ad4259", passwd="apa123", use_unicode=True, charset="utf8")
         cur = db.cursor()
         cur.execute(my_string)
-        return cur.fetchall()
         db.close()
+        return cur.fetchall()
 
     def add_data(self, my_string):
         db = MySQLdb.connect(host="195.178.235.60", user="ad4259", db="ad4259", passwd="apa123", use_unicode=True, charset="utf8")

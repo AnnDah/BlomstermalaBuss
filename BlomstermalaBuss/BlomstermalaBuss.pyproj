@@ -28,9 +28,6 @@
     <Compile Include="Booking.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BookingMng.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Bus.py">
       <SubType>Code</SubType>
     </Compile>

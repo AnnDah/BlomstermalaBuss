@@ -135,4 +135,8 @@ class main(object):
         new_phone.person_id = person_id
         Phone.Phone().add_phone(new_phone)
 
+    #Get depart cities
+    def get_depart_cities(self):
+        return City.City().get_depart_cities()
+
 

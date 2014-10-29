@@ -9,9 +9,9 @@ class CLI(object):
         choice = -1
 
         while choice != '0':
-            print 'Are you a:'
-            print '1: User'
-            print '2: Admin'
+            print 'Do you want to:'
+            print '1: Create a booking'
+            print '2: View admin functions'
             print '0: Exit application'
             choice = raw_input('Enter choice: ')
 
@@ -30,8 +30,6 @@ class CLI(object):
     #User menu
     def user_menu(self):
         self.add_new_booking()
-        #search trip
-        #book trip
 
     #Admin menu
     def admin_menu(self):
@@ -69,13 +67,17 @@ class CLI(object):
 
     #Add new booking
     def add_new_booking(self):
-        first_name = raw_input('Enter your first name: ')
-        last_name = raw_input('Enter your last name: ')
+        first_name = raw_input('Enter first name: ')
+        last_name = raw_input('Enter last name: ')
         persons = main.main().get_person_id(first_name, last_name)
         print '{:<4}'.format('ID'), '{:<20}'.format('Name'), '{:<10}'.format('Personal number')
         for line in persons:
-            print '{:<4}'.format(line['ID']), '{:<20}'.format(line['FirstName'] + ' ' + line['LastName']), '{:<10}'.format(line['PersonalNumber'])
-        person = raw_input('Enter your user ID: ')
+            print '{:<4}'.format(line['ID']), u'{:<20}'.format(line['FirstName'] + ' ' + line['LastName']), '{:<10}'.format(line['PersonalNumber'])
+        person = raw_input('Enter the user ID: ')
+        departs = main.main().get_depart_cities()
+        print '{:<4}'.format('ID'), '{:<15}'.format('City'), '{:<15}'.format('Country')
+        for line in departs:
+            print '{:<4}'.format(line['ID']), u'{:<15}'.format(line['Name']), u'{:<15}'.format(line['Country'])
         search = raw_input('Enter city to depart from: ')
         trips = main.main().search_trip(search)
         print 'Departures from: %s' %(search)
@@ -326,9 +328,11 @@ class CLI(object):
         #See all bookings
         elif choice == '3':
             bookings = main.main().get_all_bookings()
-            print '{:<4}'.format('ID'), u'{:<10}'.format('Date'), u'{:<4}'.format('TripID'), u'{:<4}'.format('PersonID')
+      
+            print '{:<4}'.format('ID'), u'{:<7}'.format('Starts'), u'{:<7}'.format('Ends'), u'{:<7}'.format('Price'), u'{:<25}'.format('FromCity'), u'{:<25}'.format('ToCity'), u'{:<10}'.format('Bus'), u'{:<25}'.format('Name'), u'{:<10}'.format('PersonalNumber')
+
             for line in bookings:
-                print '{:<4}'.format(line['ID']), '{:<10}'.format(line['Date']), u'{:<4}'.format(line['TripID']), u'{:<4}'.format(line['PersonID'])
+                print '{:<4}'.format(line['ID']), u'{:<7}'.format(line['Start']), u'{:<7}'.format(line['Ends']), u'{:<7}'.format(line['Price']), u'{:<25}'.format(line['FromCity'] + ', ' + line['FromCountry']), u'{:<25}'.format(line['ToCity'] + ', ' + line['ToCountry']), u'{:<10}'.format(line['BusName']), u'{:<25}'.format(line['FirstName'] + ' ' + line['LastName']), u'{:<10}'.format(line['PersonalNumber'])
         
         #See bookings on a specific date
         #Doesn't work yet

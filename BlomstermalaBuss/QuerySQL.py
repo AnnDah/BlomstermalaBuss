@@ -32,7 +32,6 @@ class QuerySQL(object):
     #Delete person
     def delete_user(self, id):                 
         query = 'DELETE FROM Person WHERE ID=%s CONSTRAINT Address_ibfk_1 FOREIGN KEY (ID) REFERENCES Address_ibfk_1 (ID) ON DELETE CASCADE' % (id)
-       # query = 'DELETE FROM Person WHERE ID=%s' % (id)  #working but problematic
         self.db_connection.remove_data(query)
 
 
@@ -114,7 +113,7 @@ class QuerySQL(object):
 
     #Search trip on depart from
     def search_trip(self, search):
-        query = 'SELECT Trip.ID, Start, Ends, Weekday, Price, a.Name AS DepartsFrom, b.Name AS ArrivesAt FROM Trip INNER JOIN City a ON Trip.DepartsFrom=a.ID INNER JOIN City b ON Trip.ArrivesAt=b.ID WHERE Trip.DepartsFrom=(SELECT ID FROM City WHERE Name=\'%s\')' % (search)
+        query = 'SELECT Trip.ID, Start, Ends, Weekday, Price, a.Name AS DepartsFrom, b.Name AS ArrivesAt FROM Trip INNER JOIN City a ON Trip.DepartsFrom=a.ID INNER JOIN City b ON Trip.ArrivesAt=b.ID WHERE Trip.DepartsFrom=(SELECT ID FROM City WHERE ID=\'%s\')' % (search)
         result = self.db_connection.get_data(query)
         reslist=[]
         for record in result:
@@ -205,10 +204,10 @@ class QuerySQL(object):
         return reslist
 
     #Get information about all bookings
-    def get_bookings(self):
+    def get_all_bookings(self):
         query = """
             select 
-             b.ID AS TripID,
+             b.ID,
              b.Date,
              t.Start,
              t.Ends,
@@ -236,7 +235,7 @@ class QuerySQL(object):
         reslist=[]
         for record in result:
             resline={}
-            resline['TripID']=record[0]
+            resline['ID']=record[0]
             resline['Date']=record[1]
             resline['Start']=record[2]
             resline['Ends']=record[3]
@@ -250,4 +249,25 @@ class QuerySQL(object):
             resline['LastName']=record[11]
             resline['PersonalNumber']=record[12]
             reslist.append(resline)
+        
         return reslist
+
+    #Get list of citys that belongs to a trip via DepartsFrom
+    def get_depart_cities(self):
+        query = """
+            SELECT DISTINCT City.ID, City.Name, City.Country 
+            FROM City 
+            JOIN Trip
+            ON Trip.DepartsFrom=City.ID
+            """
+        result = self.db_connection.get_data(query)
+        reslist=[]
+        for record in result:
+            resline={}
+            resline['ID']=record[0]
+            resline['Name']=record[1]
+            resline['Country']=record[2]
+            reslist.append(resline)
+
+        return reslist
+
