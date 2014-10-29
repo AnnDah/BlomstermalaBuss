@@ -93,8 +93,8 @@ class CLI(object):
             print 'What do you want to do?'
             print '1: See list of persons'
             print '2: Add person'
-            print '3: Delete person'
-            print '4: Edit person'
+            #print '3: Delete person'
+            #print '4: Edit person'
             choice = raw_input('Enter choice: ')
 
             #See all persons
@@ -167,8 +167,8 @@ class CLI(object):
     def bus_menu(self):
         print 'What do you want to do?'
         print '1: Add bus'
-        print '2: Edit bus'
-        print '3: Delete bus'
+        #print '2: Edit bus'
+        #print '3: Delete bus'
         print '4: See list of available buses'
         choice = raw_input('Enter choice: ')
 
@@ -225,8 +225,8 @@ class CLI(object):
     def city_menu(self):
         print 'What do you want to do?'
         print '1: Add city'
-        print '2: Edit city'
-        print '3: Delete city'
+        #print '2: Edit city'
+        #print '3: Delete city'
         print '4: See list of citys'
         choice = raw_input('Enter choice: ')
 
@@ -253,7 +253,7 @@ class CLI(object):
             result = main.main().get_cities()
             print '{:<4}'.format('ID'), '{:<20}'.format('Name'), '{:<20}'.format('Country')
             for line in result:
-                print '{:<4}'.format(line['ID']), '{:<20}'.format(line['Name']), '{:<20}'.format(line['Country'])        
+                print '{:<4}'.format(line['ID']), u'{:<20}'.format(line['Name']), u'{:<20}'.format(line['Country'])        
 
         #Invalid choice
         else:
@@ -264,8 +264,8 @@ class CLI(object):
         print 'What do you want to do?'
         print '1: See all trips'
         print '2: Add trip'
-        print '3: Edit trip'
-        print '4: Delete trip'
+        #print '3: Edit trip'
+        #print '4: Delete trip'
         choice = raw_input('Enter choice: ')
             
         if choice == '1':
@@ -310,10 +310,10 @@ class CLI(object):
     def booking_menu(self):
         print 'What do you want to do?'
         print '1: Add booking'
-        print '2: Delete booking'
+        #print '2: Delete booking'
         print '3: See all bookings'
-        print '4: See bookings on a specific date'
-        print '5: See bookings for a specific user'
+        #print '4: See bookings on a specific date'
+        #print '5: See bookings for a specific user'
         choice = raw_input('Enter choice: ')
 
         #Add booking
