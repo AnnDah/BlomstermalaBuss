@@ -30,16 +30,11 @@ class QuerySQL(object):
         self.db_connection.add_data(query)
 
     #Delete person
-    def delete_user(self, id):
-        #query = 'ALTER TABLE '
-         
+    def delete_user(self, id):                 
         query = 'DELETE FROM Person WHERE ID=%s CONSTRAINT Address_ibfk_1 FOREIGN KEY (ID) REFERENCES Address_ibfk_1 (ID) ON DELETE CASCADE' % (id)
        # query = 'DELETE FROM Person WHERE ID=%s' % (id)  #working but problematic
         self.db_connection.remove_data(query)
 
-        #CONSTRAINT `fk_1` FOREIGN KEY (`id1`) REFERENCES `tbl1` (`id`) ON DELETE CASCADE,
-#        ALTER TABLE Orders
-#DROP FOREIGN KEY fk_PerOrders
 
     #Delete bus
     def delete_bus(self, id):
